@@ -1,7 +1,10 @@
+import HeroSection from "../../components/home/HeroSection";
+import "./CSS/Home.css";
+
 function Home() {
     return (
         <>
-            <h1>EventCrew Home</h1>
+            <HeroSection />
         </>
     );
 }
