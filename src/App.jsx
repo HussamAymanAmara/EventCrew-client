@@ -1,26 +1,29 @@
-import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import EventCrewNavbar from "./components/common/Navbar";
+import Navbar from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
 import Home from "./pages/public/Home";
-import axios from 'axios';
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <BrowserRouter>
+    <BrowserRouter>
 
-        <EventCrewNavbar />
+      <div className="eventcrew-app">
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
+        <Navbar />
 
-      </BrowserRouter>
+        <main className="eventcrew-main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </main>
 
-    </>
-  )
+        <Footer />
+
+      </div>
+
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;

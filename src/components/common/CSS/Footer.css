@@ -1,0 +1,131 @@
+.eventcrew-footer {
+    width: 100%;
+    margin-top: auto;
+    background-color: #082b55;
+    color: #ffffff;
+}
+
+.eventcrew-footer-content {
+    width: 92%;
+    max-width: 1450px;
+    margin: auto;
+    padding: 55px 0 45px;
+
+    display: grid;
+    grid-template-columns: 1.4fr 2fr;
+    gap: 80px;
+}
+
+.eventcrew-footer-brand {
+    max-width: 420px;
+}
+
+.eventcrew-footer-title {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 18px;
+
+    font-size: 32px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.eventcrew-footer-title span:first-child {
+    color: #ffffff;
+}
+
+.eventcrew-footer-title span:last-child {
+    color: #19b8aa;
+}
+
+.eventcrew-footer-brand p {
+    margin: 0;
+
+    color: #c9d8e5;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.eventcrew-footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+}
+
+.eventcrew-footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.eventcrew-footer-column h4 {
+    margin: 0 0 20px;
+
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.eventcrew-footer-column a {
+    margin-bottom: 12px;
+
+    color: #c9d8e5;
+    font-size: 14px;
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.eventcrew-footer-column a:hover {
+    color: #19b8aa;
+}
+
+.eventcrew-footer-bottom {
+    width: 92%;
+    max-width: 1450px;
+    margin: auto;
+
+    padding: 20px 0;
+
+    border-top: 1px solid #24486d;
+    text-align: center;
+}
+
+.eventcrew-footer-bottom p {
+    margin: 0;
+
+    color: #9fb5c7;
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+    .eventcrew-footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .eventcrew-footer-brand {
+        max-width: 550px;
+    }
+}
+
+@media (max-width: 650px) {
+    .eventcrew-footer-content {
+        width: 90%;
+        padding: 40px 0 35px;
+    }
+
+    .eventcrew-footer-links {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .eventcrew-footer-title {
+        font-size: 28px;
+    }
+
+    .eventcrew-footer-bottom {
+        width: 90%;
+    }
+}
