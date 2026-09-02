@@ -1,137 +1,384 @@
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+// import { useState } from "react";
+// import { Link, useNavigate } from "react-router-dom";
+// import "./CSS/Navbar.css";
+
+// function EventCrewNavbar() {
+//     const navigate = useNavigate();
+//     const [search, setSearch] = useState("");
+//     const [menuOpen, setMenuOpen] = useState(false);
+
+//     const storedUser = localStorage.getItem("user");
+//     const user = storedUser ? JSON.parse(storedUser) : null;
+//     const role = user?.role;
+
+//     const handleSearch = (e) => {
+//         e.preventDefault();
+
+//         if (search.trim() !== "") {
+//             navigate(`/opportunities?search=${search}`);
+//             setMenuOpen(false);
+//         }
+//     };
+
+//     const handleLogout = () => {
+//         localStorage.removeItem("user");
+//         navigate("/");
+//         setMenuOpen(false);
+//     };
+
+//     return (
+//         <nav className="eventcrew-navbar">
+//             <div className="eventcrew-navbar-container">
+
+//                 <Link to="/" className="navbar-logo-link">
+//                     <img
+//                         src="/public/EventCrew Logo.png"
+//                         alt="EventCrew"
+//                         className="navbar-logo"
+//                     />
+//                 </Link>
+
+//                 <button
+//                     className="navbar-menu-button"
+//                     onClick={() => setMenuOpen(!menuOpen)}
+//                 >
+//                     <span></span>
+//                     <span></span>
+//                     <span></span>
+//                 </button>
+
+//                 <div className={`navbar-content ${menuOpen ? "show" : ""}`}>
+
+//                     {!user && (
+//                         <>
+//                             <div className="navbar-links">
+//                                 <Link to="/" onClick={() => setMenuOpen(false)}>
+//                                     Home
+//                                 </Link>
+
+//                                 <Link
+//                                     to="/opportunities"
+//                                     onClick={() => setMenuOpen(false)}
+//                                 >
+//                                     Browse Opportunities
+//                                 </Link>
+//                             </div>
+
+//                             <form
+//                                 className="navbar-search"
+//                                 onSubmit={handleSearch}
+//                             >
+//                                 <input
+//                                     type="search"
+//                                     placeholder="Search opportunities"
+//                                     value={search}
+//                                     onChange={(e) => setSearch(e.target.value)}
+//                                 />
+
+//                                 <button type="submit">
+//                                     Search
+//                                 </button>
+//                             </form>
+
+//                             <div className="navbar-actions">
+//                                 <Link
+//                                     to="/login"
+//                                     className="navbar-login"
+//                                     onClick={() => setMenuOpen(false)}
+//                                 >
+//                                     Login
+//                                 </Link>
+
+//                                 <Link
+//                                     to="/register"
+//                                     className="navbar-register"
+//                                     onClick={() => setMenuOpen(false)}
+//                                 >
+//                                     Register
+//                                 </Link>
+//                             </div>
+//                         </>
+//                     )}
+
+//                     {role === "volunteer" && (
+//                         <>
+//                             <div className="navbar-links">
+//                                 <Link to="/volunteer/home">Home</Link>
+
+//                                 <Link to="/opportunities">
+//                                     Browse Opportunities
+//                                 </Link>
+
+//                                 <Link to="/volunteer/applications">
+//                                     My Applications
+//                                 </Link>
+
+//                                 <Link to="/volunteer/dashboard">
+//                                     Dashboard
+//                                 </Link>
+
+//                                 <Link to="/volunteer/profile">
+//                                     Profile
+//                                 </Link>
+//                             </div>
+
+//                             <form
+//                                 className="navbar-search"
+//                                 onSubmit={handleSearch}
+//                             >
+//                                 <input
+//                                     type="search"
+//                                     placeholder="Search opportunities"
+//                                     value={search}
+//                                     onChange={(e) => setSearch(e.target.value)}
+//                                 />
+
+//                                 <button type="submit">
+//                                     Search
+//                                 </button>
+//                             </form>
+
+//                             <button
+//                                 className="navbar-logout"
+//                                 onClick={handleLogout}
+//                             >
+//                                 Logout
+//                             </button>
+//                         </>
+//                     )}
+
+//                     {role === "organization" && (
+//                         <>
+//                             <div className="navbar-links organization-links">
+//                                 <Link to="/organization/home">
+//                                     Home
+//                                 </Link>
+
+//                                 <Link to="/organization/dashboard">
+//                                     Dashboard
+//                                 </Link>
+
+//                                 <Link to="/organization/opportunities/create">
+//                                     Create Opportunity
+//                                 </Link>
+
+//                                 <Link to="/organization/applications">
+//                                     Applications
+//                                 </Link>
+
+//                                 <Link to="/organization/profile">
+//                                     Profile
+//                                 </Link>
+//                             </div>
+
+//                             <button
+//                                 className="navbar-logout"
+//                                 onClick={handleLogout}
+//                             >
+//                                 Logout
+//                             </button>
+//                         </>
+//                     )}
+
+//                 </div>
+//             </div>
+//         </nav>
+//     );
+// }
+
+// export default EventCrewNavbar;
+
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./CSS/Navbar.css";
 
-const EventCrewNavbar = () => {
+function EventCrewNavbar() {
     const navigate = useNavigate();
+    const [search, setSearch] = useState("");
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const storedUser = localStorage.getItem("user");
     const user = storedUser ? JSON.parse(storedUser) : null;
     const role = user?.role;
 
+    const handleSearch = (e) => {
+        e.preventDefault();
+
+        if (search.trim() !== "") {
+            navigate(`/opportunities?search=${search}`);
+            setMenuOpen(false);
+        }
+    };
+
     const handleLogout = () => {
         localStorage.removeItem("user");
         navigate("/");
+        setMenuOpen(false);
     };
 
     return (
-        <Navbar expand="lg" className="eventcrew-navbar">
-            <Container>
-                <Navbar.Brand as={Link} to="/" className="eventcrew-brand">
-                    EventCrew
-                </Navbar.Brand>
+        <nav className="eventcrew-navbar">
+            <div className="eventcrew-navbar-container">
 
-                <Navbar.Toggle aria-controls="eventcrewNavbar" />
+                <Link to="/" className="navbar-logo-link">
+                    <img
+                        src="/public/EventCrew Logo.png"
+                        alt="EventCrew"
+                        className="navbar-logo"
+                    />
+                </Link>
 
-                <Navbar.Collapse id="eventcrewNavbar">
+                <button
+                    className="navbar-menu-button"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div className={`navbar-content ${menuOpen ? "show" : ""}`}>
 
                     {!user && (
                         <>
-                            <Nav className="me-auto">
-                                <Nav.Link as={Link} to="/">
+                            <div className="navbar-links">
+                                <Link
+                                    to="/"
+                                    onClick={() => setMenuOpen(false)}
+                                >
                                     Home
-                                </Nav.Link>
+                                </Link>
 
-                                <Nav.Link as={Link} to="/opportunities">
-                                    Browse Opportunities
-                                </Nav.Link>
-                            </Nav>
+                                <Link
+                                    to="/opportunities"
+                                    onClick={() => setMenuOpen(false)}
+                                >
+                                    Opportunities
+                                </Link>
+                            </div>
 
-                            <Nav className="eventcrew-actions">
-                                <Nav.Link as={Link} to="/login">
+                            <form
+                                className="navbar-search"
+                                onSubmit={handleSearch}
+                            >
+                                <input
+                                    type="search"
+                                    placeholder="Search opportunities"
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}
+                                />
+
+                                <button type="submit">
+                                    Search
+                                </button>
+                            </form>
+
+                            <div className="navbar-actions">
+                                <Link
+                                    to="/login"
+                                    className="navbar-login"
+                                    onClick={() => setMenuOpen(false)}
+                                >
                                     Login
-                                </Nav.Link>
+                                </Link>
 
-                                <Button
-                                    as={Link}
+                                <Link
                                     to="/register"
-                                    className="eventcrew-register-button"
+                                    className="navbar-register"
+                                    onClick={() => setMenuOpen(false)}
                                 >
                                     Register
-                                </Button>
-                            </Nav>
+                                </Link>
+                            </div>
                         </>
                     )}
 
                     {role === "volunteer" && (
                         <>
-                            <Nav className="me-auto">
-                                <Nav.Link as={Link} to="/volunteer/home">
+                            <div className="navbar-links">
+                                <Link to="/volunteer/home">
                                     Home
-                                </Nav.Link>
+                                </Link>
 
-                                <Nav.Link as={Link} to="/opportunities">
-                                    Browse Opportunities
-                                </Nav.Link>
+                                <Link to="/opportunities">
+                                    Opportunities
+                                </Link>
 
-                                <Nav.Link as={Link} to="/volunteer/applications">
+                                <Link to="/volunteer/applications">
                                     My Applications
-                                </Nav.Link>
+                                </Link>
 
-                                <Nav.Link as={Link} to="/volunteer/dashboard">
+                                <Link to="/volunteer/dashboard">
                                     Dashboard
-                                </Nav.Link>
+                                </Link>
 
-                                <Nav.Link as={Link} to="/volunteer/profile">
+                                <Link to="/volunteer/profile">
                                     Profile
-                                </Nav.Link>
-                            </Nav>
+                                </Link>
+                            </div>
 
-                            <Button
+                            <form
+                                className="navbar-search"
+                                onSubmit={handleSearch}
+                            >
+                                <input
+                                    type="search"
+                                    placeholder="Search opportunities"
+                                    value={search}
+                                    onChange={(e) => setSearch(e.target.value)}
+                                />
+
+                                <button type="submit">
+                                    Search
+                                </button>
+                            </form>
+
+                            <button
+                                className="navbar-logout"
                                 onClick={handleLogout}
-                                className="eventcrew-logout-button"
                             >
                                 Logout
-                            </Button>
+                            </button>
                         </>
                     )}
 
                     {role === "organization" && (
                         <>
-                            <Nav className="me-auto">
-                                <Nav.Link as={Link} to="/organization/home">
+                            <div className="navbar-links organization-links">
+                                <Link to="/organization/home">
                                     Home
-                                </Nav.Link>
+                                </Link>
 
-                                <Nav.Link as={Link} to="/organization/dashboard">
+                                <Link to="/organization/dashboard">
                                     Dashboard
-                                </Nav.Link>
+                                </Link>
 
-                                <Nav.Link
-                                    as={Link}
-                                    to="/organization/opportunities/create"
-                                >
+                                <Link to="/organization/opportunities/create">
                                     Create Opportunity
-                                </Nav.Link>
+                                </Link>
 
-                                <Nav.Link
-                                    as={Link}
-                                    to="/organization/applications"
-                                >
+                                <Link to="/organization/applications">
                                     Applications
-                                </Nav.Link>
+                                </Link>
 
-                                <Nav.Link as={Link} to="/organization/profile">
+                                <Link to="/organization/profile">
                                     Profile
-                                </Nav.Link>
-                            </Nav>
+                                </Link>
+                            </div>
 
-                            <Button
+                            <button
+                                className="navbar-logout"
                                 onClick={handleLogout}
-                                className="eventcrew-logout-button"
                             >
                                 Logout
-                            </Button>
+                            </button>
                         </>
                     )}
 
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+                </div>
+            </div>
+        </nav>
     );
-};
+}
 
 export default EventCrewNavbar;
