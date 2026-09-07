@@ -1,5 +1,6 @@
 import HeroSection from "../../components/home/HeroSection";
 import CategorySection from "../../components/home/CategorySection";
+import FeaturedOpportunities from "../../components/home/FeaturedOpportunities";
 import "./CSS/Home.css";
 
 function Home() {
@@ -7,6 +8,7 @@ function Home() {
         <>
             <HeroSection />
             <CategorySection />
+            <FeaturedOpportunities />
         </>
     );
 }
