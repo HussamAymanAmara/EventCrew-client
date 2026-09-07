@@ -1,0 +1,136 @@
+.eventcrew-category-section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 75px 0;
+}
+
+.eventcrew-category-container {
+    width: 92%;
+    max-width: 1450px;
+    margin: auto;
+}
+
+.eventcrew-category-header {
+    max-width: 650px;
+    margin: 0 auto 45px;
+    text-align: center;
+}
+
+.eventcrew-category-header span {
+    color: #19b8aa;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.eventcrew-category-header h2 {
+    margin: 10px 0 15px;
+    color: #082b55;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.eventcrew-category-header p {
+    margin: 0;
+    color: #667788;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.eventcrew-category-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.eventcrew-category-card {
+    min-height: 190px;
+    padding: 28px;
+    background-color: #f8fbfc;
+    border: 1px solid #e1eeee;
+    border-radius: 14px;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.eventcrew-category-card:hover {
+    transform: translateY(-5px);
+    border-color: #19b8aa;
+    box-shadow: 0 10px 30px rgba(8, 43, 85, 0.08);
+}
+
+.eventcrew-category-icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 20px;
+    background-color: #ddf7f4;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+}
+
+.eventcrew-category-card h3 {
+    margin: 0 0 10px;
+    color: #082b55;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.eventcrew-category-card span {
+    color: #19b8aa;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.eventcrew-category-view-all {
+    margin-top: 38px;
+    text-align: center;
+}
+
+.eventcrew-category-view-all a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 24px;
+    background-color: #082b55;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.eventcrew-category-view-all a:hover {
+    background-color: #19b8aa;
+}
+
+@media (max-width: 900px) {
+    .eventcrew-category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .eventcrew-category-header h2 {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .eventcrew-category-section {
+        padding: 55px 0;
+    }
+
+    .eventcrew-category-container {
+        width: 90%;
+    }
+
+    .eventcrew-category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .eventcrew-category-header h2 {
+        font-size: 28px;
+    }
+}
