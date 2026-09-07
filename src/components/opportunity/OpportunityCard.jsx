@@ -27,7 +27,8 @@ function OpportunityCard(props) {
 
             <div className="eventcrew-opportunity-info">
                 <p>
-                    <strong>Date:</strong> {opportunity.event_date}
+                    <strong>Date:</strong>{" "}
+                    {new Date(opportunity.event_date).toLocaleDateString()}
                 </p>
 
                 <p>
