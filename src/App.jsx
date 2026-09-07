@@ -3,6 +3,7 @@ import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import Home from "./pages/public/Home";
 import BrowseOpportunities from "./pages/public/BrowseOpportunities";
+import OpportunityDetails from "./pages/public/OpportunityDetails";
 import "./App.css";
 
 function App() {
@@ -19,6 +20,10 @@ function App() {
             <Route
               path="/opportunities"
               element={<BrowseOpportunities />}
+            />
+            <Route
+              path="/opportunities/:id"
+              element={<OpportunityDetails />}
             />
           </Routes>
         </main>
