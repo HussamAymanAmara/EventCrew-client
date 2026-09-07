@@ -1,0 +1,102 @@
+.eventcrew-opportunity-card {
+    width: 100%;
+    min-height: 360px;
+    padding: 26px;
+    background-color: #ffffff;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s ease;
+}
+
+.eventcrew-opportunity-card:hover {
+    transform: translateY(-4px);
+    border-color: #19b8aa;
+    box-shadow: 0 10px 25px rgba(8, 43, 85, 0.08);
+}
+
+.eventcrew-opportunity-card-top {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.eventcrew-opportunity-type {
+    padding: 6px 11px;
+    background-color: #ddf7f4;
+    border-radius: 20px;
+    color: #159f94;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.eventcrew-opportunity-compensation {
+    color: #667788;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.eventcrew-opportunity-title {
+    margin: 0 0 12px;
+    color: #082b55;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.eventcrew-opportunity-description {
+    margin: 0 0 20px;
+    color: #667788;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.eventcrew-opportunity-info {
+    margin-bottom: 22px;
+}
+
+.eventcrew-opportunity-info p {
+    margin: 0 0 9px;
+    color: #536474;
+    font-size: 14px;
+}
+
+.eventcrew-opportunity-info strong {
+    color: #082b55;
+    font-weight: 600;
+}
+
+.eventcrew-opportunity-button {
+    min-height: 44px;
+    margin-top: auto;
+    background-color: #19b8aa;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+.eventcrew-opportunity-button:hover {
+    background-color: #082b55;
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .eventcrew-opportunity-card {
+        min-height: auto;
+        padding: 22px;
+    }
+
+    .eventcrew-opportunity-title {
+        font-size: 19px;
+    }
+}
