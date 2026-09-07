@@ -1,6 +1,7 @@
 import HeroSection from "../../components/home/HeroSection";
 import CategorySection from "../../components/home/CategorySection";
 import FeaturedOpportunities from "../../components/home/FeaturedOpportunities";
+import HowItWorks from "../../components/home/HowItWorks";
 import "./CSS/Home.css";
 
 function Home() {
@@ -9,6 +10,7 @@ function Home() {
             <HeroSection />
             <CategorySection />
             <FeaturedOpportunities />
+            <HowItWorks />
         </>
     );
 }

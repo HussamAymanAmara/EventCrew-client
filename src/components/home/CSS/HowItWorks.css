@@ -1,0 +1,142 @@
+.eventcrew-how-section {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 80px 0;
+}
+
+.eventcrew-how-container {
+    width: 92%;
+    max-width: 1450px;
+    margin: auto;
+}
+
+.eventcrew-how-header {
+    max-width: 700px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.eventcrew-how-header span {
+    color: #19b8aa;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.eventcrew-how-header h2 {
+    margin: 10px 0 15px;
+    color: #082b55;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.eventcrew-how-header p {
+    margin: 0;
+    color: #667788;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.eventcrew-how-steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.eventcrew-how-step {
+    width: 220px;
+    text-align: center;
+}
+
+.eventcrew-how-number {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background-color: #19b8aa;
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eventcrew-how-step h3 {
+    margin: 0 0 12px;
+    color: #082b55;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.eventcrew-how-step p {
+    margin: 0;
+    color: #667788;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.eventcrew-how-line {
+    width: 80px;
+    height: 2px;
+    margin: 27px 15px 0;
+    background-color: #cce8e5;
+}
+
+.eventcrew-how-action {
+    margin-top: 45px;
+    text-align: center;
+}
+
+.eventcrew-how-action a {
+    min-height: 46px;
+    padding: 0 26px;
+    border-radius: 8px;
+    background-color: #082b55;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s ease;
+}
+
+.eventcrew-how-action a:hover {
+    background-color: #19b8aa;
+}
+
+@media (max-width: 950px) {
+    .eventcrew-how-steps {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+
+    .eventcrew-how-step {
+        width: 100%;
+    }
+
+    .eventcrew-how-line {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .eventcrew-how-section {
+        padding: 55px 0;
+    }
+
+    .eventcrew-how-container {
+        width: 90%;
+    }
+
+    .eventcrew-how-header h2 {
+        font-size: 29px;
+    }
+
+    .eventcrew-how-steps {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+}
