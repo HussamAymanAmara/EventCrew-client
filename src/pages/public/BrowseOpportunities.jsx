@@ -2,17 +2,27 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import OpportunityCard from "../../components/opportunity/OpportunityCard";
 import OpportunitySearch from "../../components/opportunity/OpportunitySearch";
+import OpportunityFilters from "../../components/opportunity/OpportunityFilters";
 import "./CSS/BrowseOpportunities.css";
 
 function BrowseOpportunities() {
     const [opportunities, setOpportunities] = useState([]);
+
     const [search, setSearch] = useState("");
+    const [categoryId, setCategoryId] = useState("");
+    const [city, setCity] = useState("");
+    const [compensation, setCompensation] = useState("");
+    const [date, setDate] = useState("");
+    const [sort, setSort] = useState("");
+
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/api/opportunities")
+            .get(
+                "http://localhost:5000/api/opportunities?status=open"
+            )
             .then((response) => {
                 setOpportunities(response.data);
                 setLoading(false);
@@ -24,15 +34,13 @@ function BrowseOpportunities() {
             });
     }, []);
 
-    const handleSearch = (e) => {
-        e.preventDefault();
-
+    const getOpportunities = () => {
         setLoading(true);
         setError("");
 
         axios
             .get(
-                `http://localhost:5000/api/opportunities?search=${search}`
+                `http://localhost:5000/api/opportunities?search=${search}&category_id=${categoryId}&city=${city}&status=open&compensation=${compensation}&date=${date}&sort=${sort}`
             )
             .then((response) => {
                 setOpportunities(response.data);
@@ -40,7 +48,43 @@ function BrowseOpportunities() {
             })
             .catch((error) => {
                 console.log(error);
-                setError("Unable to search opportunities");
+                setError("Unable to load opportunities");
+                setLoading(false);
+            });
+    };
+
+    const handleSearch = (e) => {
+        e.preventDefault();
+        getOpportunities();
+    };
+
+    const handleFilter = (e) => {
+        e.preventDefault();
+        getOpportunities();
+    };
+
+    const handleClear = () => {
+        setSearch("");
+        setCategoryId("");
+        setCity("");
+        setCompensation("");
+        setDate("");
+        setSort("");
+
+        setLoading(true);
+        setError("");
+
+        axios
+            .get(
+                "http://localhost:5000/api/opportunities?status=open"
+            )
+            .then((response) => {
+                setOpportunities(response.data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+                setError("Unable to load opportunities");
                 setLoading(false);
             });
     };
@@ -66,6 +110,21 @@ function BrowseOpportunities() {
                     handleSearch={handleSearch}
                 />
 
+                <OpportunityFilters
+                    categoryId={categoryId}
+                    setCategoryId={setCategoryId}
+                    city={city}
+                    setCity={setCity}
+                    compensation={compensation}
+                    setCompensation={setCompensation}
+                    date={date}
+                    setDate={setDate}
+                    sort={sort}
+                    setSort={setSort}
+                    handleFilter={handleFilter}
+                    handleClear={handleClear}
+                />
+
                 {loading && (
                     <p className="eventcrew-browse-message">
                         Loading opportunities...
@@ -86,12 +145,14 @@ function BrowseOpportunities() {
 
                 {!loading && !error && opportunities.length > 0 && (
                     <div className="eventcrew-browse-grid">
+
                         {opportunities.map((opportunity) => (
                             <OpportunityCard
                                 key={opportunity.opportunity_id}
                                 opportunity={opportunity}
                             />
                         ))}
+
                     </div>
                 )}
 
