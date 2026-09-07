@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import OpportunityCard from "../../components/opportunity/OpportunityCard";
+import OpportunitySearch from "../../components/opportunity/OpportunitySearch";
 import "./CSS/BrowseOpportunities.css";
 
 function BrowseOpportunities() {
     const [opportunities, setOpportunities] = useState([]);
+    const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
 
@@ -22,6 +24,27 @@ function BrowseOpportunities() {
             });
     }, []);
 
+    const handleSearch = (e) => {
+        e.preventDefault();
+
+        setLoading(true);
+        setError("");
+
+        axios
+            .get(
+                `http://localhost:5000/api/opportunities?search=${search}`
+            )
+            .then((response) => {
+                setOpportunities(response.data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+                setError("Unable to search opportunities");
+                setLoading(false);
+            });
+    };
+
     return (
         <section className="eventcrew-browse-section">
             <div className="eventcrew-browse-container">
@@ -37,6 +60,12 @@ function BrowseOpportunities() {
                     </p>
                 </div>
 
+                <OpportunitySearch
+                    search={search}
+                    setSearch={setSearch}
+                    handleSearch={handleSearch}
+                />
+
                 {loading && (
                     <p className="eventcrew-browse-message">
                         Loading opportunities...
@@ -51,7 +80,7 @@ function BrowseOpportunities() {
 
                 {!loading && !error && opportunities.length === 0 && (
                     <p className="eventcrew-browse-message">
-                        No opportunities available.
+                        No opportunities found.
                     </p>
                 )}
 
