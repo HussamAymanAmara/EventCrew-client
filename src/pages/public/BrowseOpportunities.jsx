@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 import OpportunityCard from "../../components/opportunity/OpportunityCard";
 import OpportunitySearch from "../../components/opportunity/OpportunitySearch";
 import OpportunityFilters from "../../components/opportunity/OpportunityFilters";
+
 import "./CSS/BrowseOpportunities.css";
 
 function BrowseOpportunities() {
     const [opportunities, setOpportunities] = useState([]);
+    const [categories, setCategories] = useState([]);
 
     const [search, setSearch] = useState("");
     const [categoryId, setCategoryId] = useState("");
@@ -20,21 +23,16 @@ function BrowseOpportunities() {
 
     useEffect(() => {
         axios
-            .get(
-                "http://localhost:5000/api/opportunities?status=open"
-            )
+            .get("http://localhost:5000/api/categories")
             .then((response) => {
-                setOpportunities(response.data);
-                setLoading(false);
+                setCategories(response.data);
             })
             .catch((error) => {
                 console.log(error);
-                setError("Unable to load opportunities");
-                setLoading(false);
             });
     }, []);
 
-    const getOpportunities = () => {
+    useEffect(() => {
         setLoading(true);
         setError("");
 
@@ -51,16 +49,27 @@ function BrowseOpportunities() {
                 setError("Unable to load opportunities");
                 setLoading(false);
             });
-    };
+    }, [categoryId, city, compensation, date, sort]);
 
     const handleSearch = (e) => {
         e.preventDefault();
-        getOpportunities();
-    };
 
-    const handleFilter = (e) => {
-        e.preventDefault();
-        getOpportunities();
+        setLoading(true);
+        setError("");
+
+        axios
+            .get(
+                `http://localhost:5000/api/opportunities?search=${search}&category_id=${categoryId}&city=${city}&status=open&compensation=${compensation}&date=${date}&sort=${sort}`
+            )
+            .then((response) => {
+                setOpportunities(response.data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+                setError("Unable to search opportunities");
+                setLoading(false);
+            });
     };
 
     const handleClear = () => {
@@ -70,23 +79,6 @@ function BrowseOpportunities() {
         setCompensation("");
         setDate("");
         setSort("");
-
-        setLoading(true);
-        setError("");
-
-        axios
-            .get(
-                "http://localhost:5000/api/opportunities?status=open"
-            )
-            .then((response) => {
-                setOpportunities(response.data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.log(error);
-                setError("Unable to load opportunities");
-                setLoading(false);
-            });
     };
 
     return (
@@ -94,13 +86,10 @@ function BrowseOpportunities() {
             <div className="eventcrew-browse-container">
 
                 <div className="eventcrew-browse-header">
-                    <span>Volunteer Opportunities</span>
-
-                    <h1>Find an opportunity</h1>
+                    <h1>Browse Opportunities</h1>
 
                     <p>
-                        Explore available volunteer opportunities and find
-                        an activity where you can make an impact.
+                        Discover meaningful volunteering opportunities near you.
                     </p>
                 </div>
 
@@ -110,51 +99,118 @@ function BrowseOpportunities() {
                     handleSearch={handleSearch}
                 />
 
-                <OpportunityFilters
-                    categoryId={categoryId}
-                    setCategoryId={setCategoryId}
-                    city={city}
-                    setCity={setCity}
-                    compensation={compensation}
-                    setCompensation={setCompensation}
-                    date={date}
-                    setDate={setDate}
-                    sort={sort}
-                    setSort={setSort}
-                    handleFilter={handleFilter}
-                    handleClear={handleClear}
-                />
+                <div className="eventcrew-category-pills">
 
-                {loading && (
-                    <p className="eventcrew-browse-message">
-                        Loading opportunities...
-                    </p>
-                )}
+                    <button
+                        type="button"
+                        className={categoryId === "" ? "active" : ""}
+                        onClick={() => setCategoryId("")}
+                    >
+                        All
+                    </button>
 
-                {error && (
-                    <p className="eventcrew-browse-message">
-                        {error}
-                    </p>
-                )}
+                    {categories.map((category) => (
+                        <button
+                            type="button"
+                            key={category.category_id}
+                            className={
+                                categoryId == category.category_id
+                                    ? "active"
+                                    : ""
+                            }
+                            onClick={() =>
+                                setCategoryId(category.category_id)
+                            }
+                        >
+                            {category.category_name}
+                        </button>
+                    ))}
 
-                {!loading && !error && opportunities.length === 0 && (
-                    <p className="eventcrew-browse-message">
-                        No opportunities found.
-                    </p>
-                )}
+                </div>
 
-                {!loading && !error && opportunities.length > 0 && (
-                    <div className="eventcrew-browse-grid">
+                <div className="eventcrew-browse-layout">
 
-                        {opportunities.map((opportunity) => (
-                            <OpportunityCard
-                                key={opportunity.opportunity_id}
-                                opportunity={opportunity}
-                            />
-                        ))}
+                    <OpportunityFilters
+                        city={city}
+                        setCity={setCity}
+                        compensation={compensation}
+                        setCompensation={setCompensation}
+                        date={date}
+                        setDate={setDate}
+                        handleClear={handleClear}
+                    />
+
+                    <div className="eventcrew-results">
+
+                        <div className="eventcrew-results-header">
+
+                            <p>
+                                {opportunities.length} opportunities found
+                            </p>
+
+                            <select
+                                value={sort}
+                                onChange={(e) => setSort(e.target.value)}
+                            >
+                                <option value="">
+                                    Default
+                                </option>
+
+                                <option value="newest">
+                                    Most Recent
+                                </option>
+
+                                <option value="date_asc">
+                                    Date: Earliest
+                                </option>
+
+                                <option value="date_desc">
+                                    Date: Latest
+                                </option>
+                            </select>
+
+                        </div>
+
+                        {loading && (
+                            <p className="eventcrew-browse-message">
+                                Loading opportunities...
+                            </p>
+                        )}
+
+                        {error && (
+                            <p className="eventcrew-browse-message">
+                                {error}
+                            </p>
+                        )}
+
+                        {!loading &&
+                            !error &&
+                            opportunities.length === 0 && (
+                                <p className="eventcrew-browse-message">
+                                    No opportunities found.
+                                </p>
+                            )}
+
+                        {!loading &&
+                            !error &&
+                            opportunities.length > 0 && (
+                                <div className="eventcrew-browse-grid">
+
+                                    {opportunities.map((opportunity) => (
+                                        <OpportunityCard
+                                            key={
+                                                opportunity.opportunity_id
+                                            }
+                                            opportunity={opportunity}
+                                        />
+                                    ))}
+
+                                </div>
+                            )}
 
                     </div>
-                )}
+
+                </div>
 
             </div>
         </section>

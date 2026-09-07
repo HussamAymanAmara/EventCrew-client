@@ -1,106 +1,84 @@
-.eventcrew-opportunity-filters {
+.eventcrew-filter-sidebar {
     width: 100%;
-    margin-bottom: 35px;
-    padding: 24px;
-    background-color: #ffffff;
-    border: 1px solid #e0ecec;
-    border-radius: 14px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 18px;
-    align-items: end;
+    padding-right: 28px;
 }
 
-.eventcrew-filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.eventcrew-sidebar-filter {
+    padding: 0 0 28px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid #e2eaec;
 }
 
-.eventcrew-filter-group label {
+.eventcrew-sidebar-filter h3 {
+    margin: 0 0 16px;
     color: #082b55;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
-.eventcrew-filter-group input,
-.eventcrew-filter-group select {
+.eventcrew-sidebar-filter input {
     width: 100%;
     height: 44px;
     padding: 0 12px;
     background-color: #ffffff;
     border: 1px solid #d8e5e8;
-    border-radius: 8px;
+    border-radius: 7px;
     color: #536474;
     font-size: 14px;
     outline: none;
 }
 
-.eventcrew-filter-group input:focus,
-.eventcrew-filter-group select:focus {
+.eventcrew-sidebar-filter input:focus {
     border-color: #19b8aa;
 }
 
-.eventcrew-filter-buttons {
-    grid-column: 1 / -1;
+.eventcrew-compensation-buttons {
     display: flex;
-    justify-content: flex-end;
-    gap: 12px;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
-.eventcrew-filter-apply,
-.eventcrew-filter-clear {
-    min-height: 44px;
-    padding: 0 22px;
-    border-radius: 8px;
+.eventcrew-compensation-buttons button {
+    min-width: 58px;
+    height: 38px;
+    padding: 0 14px;
+    background-color: #ffffff;
+    border: 1px solid #d8e5e8;
+    border-radius: 7px;
+    color: #536474;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.eventcrew-compensation-buttons button.active {
+    background-color: #082b55;
+    border-color: #082b55;
+    color: #ffffff;
+}
+
+.eventcrew-compensation-buttons button:hover {
+    border-color: #19b8aa;
+}
+
+.eventcrew-clear-filters {
+    width: 100%;
+    height: 42px;
+    background-color: transparent;
+    border: 1px solid #d8e5e8;
+    border-radius: 7px;
+    color: #082b55;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
 }
 
-.eventcrew-filter-apply {
-    border: none;
-    background-color: #19b8aa;
-    color: #ffffff;
-}
-
-.eventcrew-filter-apply:hover {
-    background-color: #082b55;
-}
-
-.eventcrew-filter-clear {
-    background-color: #ffffff;
-    border: 1px solid #d8e5e8;
-    color: #082b55;
-}
-
-.eventcrew-filter-clear:hover {
+.eventcrew-clear-filters:hover {
     border-color: #082b55;
 }
 
-@media (max-width: 1100px) {
-    .eventcrew-opportunity-filters {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (max-width: 750px) {
-    .eventcrew-opportunity-filters {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 520px) {
-    .eventcrew-opportunity-filters {
-        grid-template-columns: 1fr;
-    }
-
-    .eventcrew-filter-buttons {
-        flex-direction: column;
-    }
-
-    .eventcrew-filter-apply,
-    .eventcrew-filter-clear {
-        width: 100%;
+@media (max-width: 800px) {
+    .eventcrew-filter-sidebar {
+        padding-right: 0;
     }
 }

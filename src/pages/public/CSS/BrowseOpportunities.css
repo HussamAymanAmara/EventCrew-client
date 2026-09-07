@@ -1,8 +1,8 @@
 .eventcrew-browse-section {
     width: 100%;
     min-height: 100vh;
-    padding: 70px 0;
-    background-color: #f7fbfc;
+    padding: 55px 0 70px;
+    background-color: #ffffff;
 }
 
 .eventcrew-browse-container {
@@ -12,20 +12,13 @@
 }
 
 .eventcrew-browse-header {
-    max-width: 700px;
-    margin-bottom: 45px;
-}
-
-.eventcrew-browse-header span {
-    color: #19b8aa;
-    font-size: 15px;
-    font-weight: 600;
+    margin-bottom: 28px;
 }
 
 .eventcrew-browse-header h1 {
-    margin: 10px 0 14px;
+    margin: 0 0 8px;
     color: #082b55;
-    font-size: 42px;
+    font-size: 36px;
     font-weight: 700;
 }
 
@@ -33,13 +26,90 @@
     margin: 0;
     color: #667788;
     font-size: 16px;
-    line-height: 1.7;
+}
+
+/* Category bar */
+
+.eventcrew-category-pills {
+    width: 100%;
+    padding: 20px 0;
+    margin-bottom: 30px;
+    border-top: 1px solid #edf1f2;
+    border-bottom: 1px solid #edf1f2;
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+}
+
+.eventcrew-category-pills button {
+    min-height: 36px;
+    padding: 0 16px;
+    background-color: #ffffff;
+    border: 1px solid #d8e5e8;
+    border-radius: 20px;
+    color: #536474;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.eventcrew-category-pills button:hover {
+    border-color: #19b8aa;
+}
+
+.eventcrew-category-pills button.active {
+    background-color: #082b55;
+    border-color: #082b55;
+    color: #ffffff;
+}
+
+/* Sidebar + results */
+
+.eventcrew-browse-layout {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 35px;
+    align-items: start;
+}
+
+.eventcrew-results {
+    min-width: 0;
+}
+
+.eventcrew-results-header {
+    min-height: 45px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.eventcrew-results-header p {
+    margin: 0;
+    color: #536474;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.eventcrew-results-header select {
+    height: 40px;
+    padding: 0 38px 0 12px;
+    background-color: #ffffff;
+    border: 1px solid #d8e5e8;
+    border-radius: 7px;
+    color: #536474;
+    font-size: 13px;
+    outline: none;
+}
+
+.eventcrew-results-header select:focus {
+    border-color: #19b8aa;
 }
 
 .eventcrew-browse-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 22px;
 }
 
 .eventcrew-browse-message {
@@ -49,15 +119,21 @@
     text-align: center;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
     .eventcrew-browse-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
+@media (max-width: 800px) {
+    .eventcrew-browse-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 650px) {
     .eventcrew-browse-section {
-        padding: 50px 0;
+        padding: 40px 0 55px;
     }
 
     .eventcrew-browse-container {
@@ -65,10 +141,19 @@
     }
 
     .eventcrew-browse-header h1 {
-        font-size: 34px;
+        font-size: 31px;
     }
 
     .eventcrew-browse-grid {
         grid-template-columns: 1fr;
+    }
+
+    .eventcrew-results-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .eventcrew-results-header select {
+        width: 100%;
     }
 }

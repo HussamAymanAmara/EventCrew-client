@@ -1,48 +1,11 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import "./CSS/OpportunityFilters.css";
 
 function OpportunityFilters(props) {
-    const [categories, setCategories] = useState([]);
-
-    useEffect(() => {
-        axios
-            .get("http://localhost:5000/api/categories")
-            .then((response) => {
-                setCategories(response.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    }, []);
-
     return (
-        <form
-            className="eventcrew-opportunity-filters"
-            onSubmit={props.handleFilter}
-        >
-            <div className="eventcrew-filter-group">
-                <label>Category</label>
+        <aside className="eventcrew-filter-sidebar">
 
-                <select
-                    value={props.categoryId}
-                    onChange={(e) => props.setCategoryId(e.target.value)}
-                >
-                    <option value="">All Categories</option>
-
-                    {categories.map((category) => (
-                        <option
-                            key={category.category_id}
-                            value={category.category_id}
-                        >
-                            {category.category_name}
-                        </option>
-                    ))}
-                </select>
-            </div>
-
-            <div className="eventcrew-filter-group">
-                <label>City</label>
+            <div className="eventcrew-sidebar-filter">
+                <h3>Location</h3>
 
                 <input
                     type="text"
@@ -52,21 +15,8 @@ function OpportunityFilters(props) {
                 />
             </div>
 
-            <div className="eventcrew-filter-group">
-                <label>Compensation</label>
-
-                <select
-                    value={props.compensation}
-                    onChange={(e) => props.setCompensation(e.target.value)}
-                >
-                    <option value="">All</option>
-                    <option value="paid">Paid</option>
-                    <option value="unpaid">Unpaid</option>
-                </select>
-            </div>
-
-            <div className="eventcrew-filter-group">
-                <label>Date</label>
+            <div className="eventcrew-sidebar-filter">
+                <h3>Date</h3>
 
                 <input
                     type="date"
@@ -75,37 +25,59 @@ function OpportunityFilters(props) {
                 />
             </div>
 
-            <div className="eventcrew-filter-group">
-                <label>Sort By</label>
+            <div className="eventcrew-sidebar-filter">
+                <h3>Compensation</h3>
 
-                <select
-                    value={props.sort}
-                    onChange={(e) => props.setSort(e.target.value)}
-                >
-                    <option value="">Default</option>
-                    <option value="date_asc">Date: Earliest First</option>
-                    <option value="date_desc">Date: Latest First</option>
-                    <option value="newest">Newest Added</option>
-                </select>
+                <div className="eventcrew-compensation-buttons">
+
+                    <button
+                        type="button"
+                        className={
+                            props.compensation === ""
+                                ? "active"
+                                : ""
+                        }
+                        onClick={() => props.setCompensation("")}
+                    >
+                        All
+                    </button>
+
+                    <button
+                        type="button"
+                        className={
+                            props.compensation === "paid"
+                                ? "active"
+                                : ""
+                        }
+                        onClick={() => props.setCompensation("paid")}
+                    >
+                        Paid
+                    </button>
+
+                    <button
+                        type="button"
+                        className={
+                            props.compensation === "unpaid"
+                                ? "active"
+                                : ""
+                        }
+                        onClick={() => props.setCompensation("unpaid")}
+                    >
+                        Unpaid
+                    </button>
+
+                </div>
             </div>
 
-            <div className="eventcrew-filter-buttons">
-                <button
-                    type="submit"
-                    className="eventcrew-filter-apply"
-                >
-                    Apply Filters
-                </button>
+            <button
+                type="button"
+                className="eventcrew-clear-filters"
+                onClick={props.handleClear}
+            >
+                Clear filters
+            </button>
 
-                <button
-                    type="button"
-                    className="eventcrew-filter-clear"
-                    onClick={props.handleClear}
-                >
-                    Clear
-                </button>
-            </div>
-        </form>
+        </aside>
     );
 }
 
