@@ -1,33 +1,46 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./CSS/CategorySection.css";
 
 function CategorySection() {
-    const categories = [
-        {
-            name: "Community",
-            icon: "🤝"
-        },
-        {
-            name: "Environment",
-            icon: "🌱"
-        },
-        {
-            name: "Education",
-            icon: "📚"
-        },
-        {
-            name: "Health",
-            icon: "❤️"
-        },
-        {
-            name: "Events",
-            icon: "📅"
-        },
-        {
-            name: "Animal Welfare",
-            icon: "🐾"
-        }
-    ];
+    const [categories, setCategories] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
+
+    useEffect(() => {
+        axios
+            .get("http://localhost:5000/api/categories")
+            .then((response) => {
+                setCategories(response.data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.log(error);
+                setError("Unable to load categories");
+                setLoading(false);
+            });
+    }, []);
+
+    if (loading) {
+        return (
+            <section className="eventcrew-category-section">
+                <p className="eventcrew-category-message">
+                    Loading categories...
+                </p>
+            </section>
+        );
+    }
+
+    if (error) {
+        return (
+            <section className="eventcrew-category-section">
+                <p className="eventcrew-category-message">
+                    {error}
+                </p>
+            </section>
+        );
+    }
 
     return (
         <section className="eventcrew-category-section">
@@ -47,17 +60,21 @@ function CategorySection() {
                 <div className="eventcrew-category-grid">
                     {categories.map((category) => (
                         <Link
-                            to={`/opportunities?category=${category.name}`}
+                            to={`/opportunities?category_id=${category.category_id}`}
                             className="eventcrew-category-card"
-                            key={category.name}
+                            key={category.category_id}
                         >
                             <div className="eventcrew-category-icon">
-                                {category.icon}
+                                {category.category_name.charAt(0)}
                             </div>
 
-                            <h3>{category.name}</h3>
+                            <h3>
+                                {category.category_name}
+                            </h3>
 
-                            <span>View opportunities →</span>
+                            <span>
+                                View opportunities →
+                            </span>
                         </Link>
                     ))}
                 </div>
