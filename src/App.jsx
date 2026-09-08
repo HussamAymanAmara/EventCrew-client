@@ -7,6 +7,7 @@ import OpportunityDetails from "./pages/public/OpportunityDetails";
 import MyApplications from "./pages/volunteer/MyApplications";
 import Login from "./pages/auth/Login";
 import VolunteerHome from "./pages/volunteer/VolunteerHome";
+import OrganizationHome from "./pages/organization/OrganizationHome";
 import "./App.css";
 
 function App() {
@@ -36,6 +37,10 @@ function App() {
             <Route
               path="/volunteer/home"
               element={<VolunteerHome />}
+            />
+            <Route
+              path="/organization/home"
+              element={<OrganizationHome />}
             />
           </Routes>
         </main>

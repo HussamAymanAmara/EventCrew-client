@@ -27,7 +27,13 @@ function Login() {
                     JSON.stringify(response.data.user)
                 );
 
-                navigate("/");
+                if (response.data.user.role === "volunteer") {
+                    navigate("/volunteer/home");
+                }
+
+                if (response.data.user.role === "organization") {
+                    navigate("/organization/home");
+                }
             })
             .catch((error) => {
 
