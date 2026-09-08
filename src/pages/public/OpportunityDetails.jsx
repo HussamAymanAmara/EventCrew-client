@@ -54,6 +54,42 @@ function OpportunityDetails() {
         );
     }
 
+    const handleApply = () => {
+
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        if (!user) {
+            alert("Please login first.");
+            return;
+        }
+
+        if (user.role !== "volunteer") {
+            alert("Only volunteers can apply.");
+            return;
+        }
+
+        axios
+            .post(
+                "http://localhost:5000/api/applications",
+                {
+                    volunteer_id: user.user_id,
+                    opportunity_id: opportunity.opportunity_id,
+                    application_message: ""
+                },
+                {
+                    headers: {
+                        "x-role": "volunteer"
+                    }
+                }
+            )
+            .then(() => {
+                alert("Application submitted successfully.");
+            })
+            .catch((error) => {
+                alert(error.response.data.message);
+            });
+    };
+
     return (
         <section className="eventcrew-opportunity-details-section">
             <div className="eventcrew-opportunity-details-container">
@@ -217,7 +253,7 @@ function OpportunityDetails() {
                             {opportunity.spots_remaining} spots remaining
                         </p>
 
-                        <button type="button">
+                        <button type="button" onClick={handleApply}>
                             Apply Now
                         </button>
 
