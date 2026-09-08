@@ -5,6 +5,7 @@ import Home from "./pages/public/Home";
 import BrowseOpportunities from "./pages/public/BrowseOpportunities";
 import OpportunityDetails from "./pages/public/OpportunityDetails";
 import MyApplications from "./pages/volunteer/MyApplications";
+import Login from "./pages/auth/Login";
 import "./App.css";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
               path="/opportunities/:id"
               element={<OpportunityDetails />}
             />
+            <Route path="/login" element={<Login />} />
             <Route
               path="/volunteer/applications"
               element={<MyApplications />}

@@ -5,8 +5,13 @@ import "./CSS/MyApplications.css";
 function MyApplications() {
     const [applications, setApplications] = useState([]);
 
+    const user = JSON.parse(localStorage.getItem("user"));
+
     useEffect(() => {
-        const user = JSON.parse(localStorage.getItem("user"));
+
+        if (!user) {
+            return;
+        }
 
         axios
             .get(
@@ -26,19 +31,28 @@ function MyApplications() {
 
     }, []);
 
+    if (!user) {
+        return <h2>Please login as a volunteer first.</h2>;
+    }
+
     return (
         <div className="eventcrew-my-applications">
 
             <h1>My Applications</h1>
 
             {applications.length === 0 ? (
+
                 <p>You have not applied to any opportunities yet.</p>
+
             ) : (
+
                 applications.map((application) => (
+
                     <div
                         className="eventcrew-application-card"
                         key={application.application_id}
                     >
+
                         <h2>{application.title}</h2>
 
                         <p>
@@ -65,8 +79,11 @@ function MyApplications() {
                             <strong>Status:</strong>{" "}
                             {application.status}
                         </p>
+
                     </div>
+
                 ))
+
             )}
 
         </div>
