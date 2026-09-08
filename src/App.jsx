@@ -4,6 +4,7 @@ import Footer from "./components/common/Footer";
 import Home from "./pages/public/Home";
 import BrowseOpportunities from "./pages/public/BrowseOpportunities";
 import OpportunityDetails from "./pages/public/OpportunityDetails";
+import MyApplications from "./pages/volunteer/MyApplications";
 import "./App.css";
 
 function App() {
@@ -24,6 +25,10 @@ function App() {
             <Route
               path="/opportunities/:id"
               element={<OpportunityDetails />}
+            />
+            <Route
+              path="/volunteer/applications"
+              element={<MyApplications />}
             />
           </Routes>
         </main>
