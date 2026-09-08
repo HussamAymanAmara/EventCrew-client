@@ -25,7 +25,7 @@
 }
 
 .navbar-logo {
-    width: 145px;
+    width: 120px;
     height: auto;
     display: block;
 }
@@ -46,7 +46,7 @@
 
 .navbar-links a {
     color: #082b55;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     text-decoration: none;
     transition: color 0.2s ease;
