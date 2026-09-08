@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import OpportunitySkills from "../../components/opportunity/OpportunitySkills";
+import OpportunityImages from "../../components/opportunity/OpportunityImages";
 import "./CSS/OpportunityDetails.css";
 
 function OpportunityDetails() {
@@ -63,6 +64,12 @@ function OpportunityDetails() {
                 <div className="eventcrew-opportunity-details-layout">
 
                     <div className="eventcrew-opportunity-details-main">
+
+                        <OpportunityImages
+                            opportunityId={opportunity.opportunity_id}
+                        />
+
+                        <div className="eventcrew-opportunity-details-top"></div>
 
                         <div className="eventcrew-opportunity-details-top">
 
