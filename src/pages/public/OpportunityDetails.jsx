@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
+import OpportunitySkills from "../../components/opportunity/OpportunitySkills";
 import "./CSS/OpportunityDetails.css";
 
 function OpportunityDetails() {
@@ -138,6 +139,10 @@ function OpportunityDetails() {
 
                             </div>
                         </div>
+
+                        <OpportunitySkills
+                            opportunityId={opportunity.opportunity_id}
+                        />
 
                         <div className="eventcrew-details-section">
                             <h2>Location</h2>

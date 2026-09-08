@@ -10,14 +10,16 @@ function FeaturedOpportunities() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/api/opportunities?is_featured=true")
+            .get(
+                "http://localhost:5000/api/opportunities?status=open&sort=newest"
+            )
             .then((response) => {
                 setOpportunities(response.data);
                 setLoading(false);
             })
             .catch((error) => {
                 console.log(error);
-                setError("Unable to load featured opportunities");
+                setError("Unable to load opportunities");
                 setLoading(false);
             });
     }, []);
@@ -29,9 +31,11 @@ function FeaturedOpportunities() {
                 <div className="eventcrew-featured-header">
                     <div>
                         <span>Featured Opportunities</span>
+
                         <h2>Make your next impact</h2>
+
                         <p>
-                            Discover selected volunteer opportunities and find
+                            Discover the latest volunteer opportunities and find
                             one that matches your interests.
                         </p>
                     </div>
@@ -58,68 +62,76 @@ function FeaturedOpportunities() {
 
                 {!loading && !error && opportunities.length === 0 && (
                     <p className="eventcrew-featured-message">
-                        No featured opportunities available.
+                        No opportunities available.
                     </p>
                 )}
 
                 {!loading && !error && opportunities.length > 0 && (
                     <div className="eventcrew-featured-grid">
-                        {opportunities.map((opportunity) => (
-                            <div
-                                className="eventcrew-featured-card"
-                                key={opportunity.opportunity_id}
-                            >
-                                <div className="eventcrew-featured-card-top">
-                                    <span className="eventcrew-featured-badge">
-                                        Featured
-                                    </span>
 
-                                    <span className="eventcrew-featured-type">
-                                        {opportunity.opportunity_type}
-                                    </span>
-                                </div>
-
-                                <h3>
-                                    {opportunity.title}
-                                </h3>
-
-                                <p className="eventcrew-featured-description">
-                                    {opportunity.description}
-                                </p>
-
-                                <div className="eventcrew-featured-details">
-                                    <p>
-                                        <strong>Date:</strong>{" "}
-                                        {new Date(
-                                            opportunity.event_date
-                                        ).toLocaleDateString()}
-                                    </p>
-
-                                    <p>
-                                        <strong>Location:</strong>{" "}
-                                        {opportunity.venue_name},{" "}
-                                        {opportunity.city}
-                                    </p>
-
-                                    <p>
-                                        <strong>Compensation:</strong>{" "}
-                                        {opportunity.compensation_type}
-                                    </p>
-
-                                    <p>
-                                        <strong>Spots Remaining:</strong>{" "}
-                                        {opportunity.spots_remaining}
-                                    </p>
-                                </div>
-
-                                <Link
-                                    to={`/opportunities/${opportunity.opportunity_id}`}
-                                    className="eventcrew-featured-details-button"
+                        {opportunities.map((opportunity, index) => (
+                            index < 3 && (
+                                <div
+                                    className="eventcrew-featured-card"
+                                    key={opportunity.opportunity_id}
                                 >
-                                    View Details
-                                </Link>
-                            </div>
+
+                                    <div className="eventcrew-featured-card-top">
+                                        <span className="eventcrew-featured-badge">
+                                            Latest
+                                        </span>
+
+                                        <span className="eventcrew-featured-type">
+                                            {opportunity.opportunity_type}
+                                        </span>
+                                    </div>
+
+                                    <h3>
+                                        {opportunity.title}
+                                    </h3>
+
+                                    <p className="eventcrew-featured-description">
+                                        {opportunity.description}
+                                    </p>
+
+                                    <div className="eventcrew-featured-details">
+
+                                        <p>
+                                            <strong>Date:</strong>{" "}
+                                            {new Date(
+                                                opportunity.event_date
+                                            ).toLocaleDateString()}
+                                        </p>
+
+                                        <p>
+                                            <strong>Location:</strong>{" "}
+                                            {opportunity.venue_name},{" "}
+                                            {opportunity.city}
+                                        </p>
+
+                                        <p>
+                                            <strong>Compensation:</strong>{" "}
+                                            {opportunity.compensation_type}
+                                        </p>
+
+                                        <p>
+                                            <strong>Spots Remaining:</strong>{" "}
+                                            {opportunity.spots_remaining}
+                                        </p>
+
+                                    </div>
+
+                                    <Link
+                                        to={`/opportunities/${opportunity.opportunity_id}`}
+                                        className="eventcrew-featured-details-button"
+                                    >
+                                        View Details
+                                    </Link>
+
+                                </div>
+                            )
                         ))}
+
                     </div>
                 )}
 

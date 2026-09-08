@@ -1,23 +1,34 @@
 .eventcrew-opportunity-card {
     width: 100%;
-    min-height: 360px;
-    padding: 26px;
+    min-height: 450px;
+
     background-color: #ffffff;
-    border: 1px solid #e0ecec;
-    border-radius: 14px;
-    display: flex;
-    flex-direction: column;
+    border: 1px solid #e0ecec !important;
+    border-radius: 14px !important;
+
+    overflow: hidden;
     transition: 0.2s ease;
 }
 
 .eventcrew-opportunity-card:hover {
     transform: translateY(-4px);
-    border-color: #19b8aa;
+    border-color: #19b8aa !important;
     box-shadow: 0 10px 25px rgba(8, 43, 85, 0.08);
 }
 
+/* React Bootstrap Card.Body */
+.eventcrew-opportunity-card .card-body {
+    width: 100%;
+    height: 100%;
+    padding: 32px !important;
+
+    display: flex;
+    flex-direction: column;
+}
+
 .eventcrew-opportunity-card-top {
-    margin-bottom: 18px;
+    margin-bottom: 22px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -25,44 +36,51 @@
 }
 
 .eventcrew-opportunity-type {
-    padding: 6px 11px;
+    padding: 7px 14px;
+
     background-color: #ddf7f4;
     border-radius: 20px;
+
     color: #159f94;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     text-transform: capitalize;
 }
 
 .eventcrew-opportunity-compensation {
     color: #667788;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     text-transform: capitalize;
 }
 
 .eventcrew-opportunity-title {
-    margin: 0 0 12px;
-    color: #082b55;
-    font-size: 21px;
-    font-weight: 700;
+    margin: 0 0 14px !important;
+
+    color: #082b55 !important;
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    line-height: 1.3;
 }
 
 .eventcrew-opportunity-description {
-    margin: 0 0 20px;
-    color: #667788;
-    font-size: 14px;
+    margin: 0 0 24px !important;
+
+    color: #667788 !important;
+    font-size: 15px;
     line-height: 1.6;
 }
 
 .eventcrew-opportunity-info {
-    margin-bottom: 22px;
+    margin-bottom: 25px;
 }
 
 .eventcrew-opportunity-info p {
-    margin: 0 0 9px;
+    margin: 0 0 10px;
+
     color: #536474;
     font-size: 14px;
+    line-height: 1.5;
 }
 
 .eventcrew-opportunity-info strong {
@@ -70,33 +88,57 @@
     font-weight: 600;
 }
 
+/* React Bootstrap Button */
 .eventcrew-opportunity-button {
+    width: 100%;
     min-height: 44px;
     margin-top: auto;
-    background-color: #19b8aa;
-    border-radius: 8px;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 600;
-    text-decoration: none;
-    display: flex;
+
+    background-color: #19b8aa !important;
+    border: none !important;
+    border-radius: 10px !important;
+
+    color: #ffffff !important;
+    font-size: 17px !important;
+    font-weight: 600 !important;
+
+    display: flex !important;
     align-items: center;
     justify-content: center;
-    transition: 0.2s ease;
+
+    box-shadow: none !important;
 }
 
 .eventcrew-opportunity-button:hover {
-    background-color: #082b55;
-    color: #ffffff;
+    background-color: #082b55 !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
+}
+
+.eventcrew-opportunity-button:focus,
+.eventcrew-opportunity-button:active {
+    background-color: #19b8aa !important;
+    border: none !important;
+    color: #ffffff !important;
+    box-shadow: none !important;
 }
 
 @media (max-width: 600px) {
     .eventcrew-opportunity-card {
-        min-height: auto;
-        padding: 22px;
+        min-height: 420px;
+    }
+
+    .eventcrew-opportunity-card .card-body {
+        padding: 24px !important;
     }
 
     .eventcrew-opportunity-title {
-        font-size: 19px;
+        font-size: 20px !important;
+    }
+
+    .eventcrew-opportunity-button {
+        min-height: 50px;
+        font-size: 16px !important;
     }
 }
