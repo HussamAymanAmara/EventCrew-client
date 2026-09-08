@@ -1,0 +1,260 @@
+.eventcrew-volunteer-home {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.eventcrew-volunteer-main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.eventcrew-home-section h2 {
+    margin: 0;
+    color: #082b55;
+    font-size: 23px;
+}
+
+.eventcrew-home-section>p {
+    color: #667788;
+}
+
+.eventcrew-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.eventcrew-section-header p {
+    margin: 5px 0 0;
+    color: #667788;
+    font-size: 14px;
+}
+
+.eventcrew-section-header a {
+    color: #667788;
+    text-decoration: none;
+}
+
+.eventcrew-section-header a:hover {
+    color: #19b8aa;
+}
+
+
+/* Upcoming events */
+
+.eventcrew-upcoming-card {
+    min-height: 100px;
+    margin-bottom: 15px;
+    padding: 20px;
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.eventcrew-upcoming-card h3 {
+    margin: 0 0 8px;
+    color: #082b55;
+}
+
+.eventcrew-upcoming-card p {
+    margin: 0;
+    color: #667788;
+    font-size: 14px;
+}
+
+.eventcrew-status {
+    padding: 7px 14px;
+    background: #ddf7f4;
+    color: #159f94;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+
+/* Recommended */
+
+.eventcrew-recommended-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.eventcrew-recommended-card {
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.eventcrew-recommended-image {
+    height: 140px;
+    background: #eef3f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #667788;
+}
+
+.eventcrew-recommended-content {
+    padding: 18px;
+}
+
+.eventcrew-recommended-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.eventcrew-recommended-top span {
+    padding: 6px 10px;
+    background: #f1f5f5;
+    border-radius: 15px;
+    color: #667788;
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.eventcrew-recommended-content h3 {
+    margin: 0 0 8px;
+    color: #082b55;
+}
+
+.eventcrew-recommended-content p {
+    margin: 0 0 15px;
+    color: #667788;
+}
+
+.eventcrew-recommended-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+    color: #667788;
+    font-size: 13px;
+}
+
+.eventcrew-recommended-content>a {
+    color: #19b8aa;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.eventcrew-recommended-content>a:hover {
+    color: #082b55;
+}
+
+
+/* Sidebar */
+
+.eventcrew-volunteer-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.eventcrew-sidebar-card {
+    padding: 25px;
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+}
+
+.eventcrew-sidebar-card h3 {
+    margin: 0 0 20px;
+    color: #082b55;
+}
+
+.eventcrew-sidebar-card>a {
+    display: block;
+    margin-bottom: 18px;
+    color: #082b55;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.eventcrew-sidebar-card>a:hover {
+    color: #19b8aa;
+}
+
+.eventcrew-hours-message {
+    margin: 0;
+    color: #667788;
+    line-height: 1.6;
+}
+
+.eventcrew-activity {
+    padding: 12px 0;
+    border-bottom: 1px solid #e5edef;
+}
+
+.eventcrew-activity:last-child {
+    border-bottom: none;
+}
+
+.eventcrew-activity strong {
+    color: #082b55;
+}
+
+.eventcrew-activity p {
+    margin: 5px 0 0;
+    color: #667788;
+    font-size: 13px;
+}
+
+
+/* Login message */
+
+.eventcrew-volunteer-message {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #082b55;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .eventcrew-volunteer-home {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .eventcrew-volunteer-home {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .eventcrew-recommended-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .eventcrew-upcoming-card {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .eventcrew-section-header {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+}

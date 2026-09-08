@@ -6,6 +6,7 @@ import BrowseOpportunities from "./pages/public/BrowseOpportunities";
 import OpportunityDetails from "./pages/public/OpportunityDetails";
 import MyApplications from "./pages/volunteer/MyApplications";
 import Login from "./pages/auth/Login";
+import VolunteerHome from "./pages/volunteer/VolunteerHome";
 import "./App.css";
 
 function App() {
@@ -31,6 +32,10 @@ function App() {
             <Route
               path="/volunteer/applications"
               element={<MyApplications />}
+            />
+            <Route
+              path="/volunteer/home"
+              element={<VolunteerHome />}
             />
           </Routes>
         </main>
