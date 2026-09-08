@@ -5,27 +5,27 @@ function OpportunityMap(props) {
 
     useEffect(() => {
 
-        if (!props.latitude || !props.longitude) {
-            return;
+        if (props.latitude && props.longitude) {
+
+            const location = {
+                lat: Number(props.latitude),
+                lng: Number(props.longitude)
+            };
+
+            const map = new window.google.maps.Map(
+                document.getElementById("eventcrew-google-map"),
+                {
+                    center: location,
+                    zoom: 15
+                }
+            );
+
+            new window.google.maps.Marker({
+                position: location,
+                map: map
+            });
+
         }
-
-        const location = {
-            lat: Number(props.latitude),
-            lng: Number(props.longitude)
-        };
-
-        const map = new window.google.maps.Map(
-            document.getElementById("eventcrew-google-map"),
-            {
-                center: location,
-                zoom: 15
-            }
-        );
-
-        new window.google.maps.Marker({
-            position: location,
-            map: map
-        });
 
     }, [props.latitude, props.longitude]);
 
