@@ -1,0 +1,64 @@
+.eventcrew-opportunity-skills {
+    margin-top: 35px;
+    padding-top: 30px;
+    border-top: 1px solid #e5edef;
+}
+
+.eventcrew-opportunity-skills h2 {
+    margin: 0 0 20px;
+    color: #082b55;
+    font-size: 22px;
+}
+
+.eventcrew-opportunity-skills>p {
+    margin: 0;
+    color: #667788;
+    font-size: 14px;
+}
+
+.eventcrew-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.eventcrew-skill-item {
+    padding: 10px 14px;
+    background-color: #f7fbfc;
+    border: 1px solid #e0ecec;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eventcrew-skill-name {
+    color: #082b55;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.eventcrew-skill-required,
+.eventcrew-skill-optional {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.eventcrew-skill-required {
+    background-color: #ddf7f4;
+    color: #159f94;
+}
+
+.eventcrew-skill-optional {
+    background-color: #eef3f7;
+    color: #667788;
+}
+
+@media (max-width: 600px) {
+    .eventcrew-skill-item {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
