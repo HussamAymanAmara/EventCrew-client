@@ -9,6 +9,10 @@
     margin-bottom: 30px;
 }
 
+.eventcrew-my-applications>p {
+    color: #667788;
+}
+
 .eventcrew-application-card {
     background: white;
     border: 1px solid #e0ecec;
@@ -29,4 +33,34 @@
 
 .eventcrew-application-card strong {
     color: #082b55;
+}
+
+.eventcrew-withdraw-button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    background: #ffffff;
+    color: #d9534f;
+    border: 1px solid #d9534f;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.eventcrew-withdraw-button:hover {
+    background: #d9534f;
+    color: white;
+}
+
+@media (max-width: 600px) {
+    .eventcrew-my-applications {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .eventcrew-application-card {
+        padding: 20px;
+    }
+
+    .eventcrew-withdraw-button {
+        width: 100%;
+    }
 }
