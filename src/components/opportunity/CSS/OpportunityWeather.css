@@ -1,0 +1,48 @@
+.eventcrew-opportunity-weather {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #e5edef;
+}
+
+.eventcrew-opportunity-weather h2 {
+    margin: 0 0 20px;
+    color: #082b55;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.eventcrew-opportunity-weather>p {
+    margin: 0;
+    color: #667788;
+    font-size: 14px;
+}
+
+.eventcrew-weather-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.eventcrew-weather-content div {
+    padding: 20px;
+    background-color: #f7fbfc;
+    border: 1px solid #e0ecec;
+    border-radius: 10px;
+}
+
+.eventcrew-weather-content span {
+    color: #667788;
+    font-size: 13px;
+}
+
+.eventcrew-weather-content h3 {
+    margin: 8px 0 0;
+    color: #082b55;
+    font-size: 20px;
+}
+
+@media (max-width: 600px) {
+    .eventcrew-weather-content {
+        grid-template-columns: 1fr;
+    }
+}

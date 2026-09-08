@@ -1,32 +1,3 @@
-/* .eventcrew-opportunity-map {
-    margin-top: 30px;
-    padding-top: 30px;
-    border-top: 1px solid #e5edef;
-}
-
-.eventcrew-opportunity-map h2 {
-    margin: 0 0 20px;
-    color: #082b55;
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.eventcrew-opportunity-map iframe {
-    width: 100%;
-    height: 350px;
-
-    border: none;
-    border-radius: 12px;
-
-    display: block;
-}
-
-@media (max-width: 600px) {
-    .eventcrew-opportunity-map iframe {
-        height: 280px;
-    }
-} */
-
 .eventcrew-opportunity-map {
     margin-top: 30px;
     padding-top: 30px;
