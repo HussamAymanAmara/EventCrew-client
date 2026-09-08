@@ -1,0 +1,32 @@
+.eventcrew-my-applications {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.eventcrew-my-applications h1 {
+    color: #082b55;
+    margin-bottom: 30px;
+}
+
+.eventcrew-application-card {
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.eventcrew-application-card h2 {
+    color: #082b55;
+    margin-bottom: 15px;
+}
+
+.eventcrew-application-card p {
+    color: #667788;
+    margin: 8px 0;
+}
+
+.eventcrew-application-card strong {
+    color: #082b55;
+}
