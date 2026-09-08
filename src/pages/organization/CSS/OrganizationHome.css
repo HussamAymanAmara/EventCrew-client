@@ -1,0 +1,260 @@
+.eventcrew-organization-home {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+}
+
+.eventcrew-organization-main {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+
+/* Quick actions */
+
+.eventcrew-organization-actions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.eventcrew-main-action,
+.eventcrew-action-card {
+    min-height: 110px;
+    padding: 20px;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.eventcrew-main-action {
+    background: #082b55;
+    color: white;
+}
+
+.eventcrew-action-card {
+    background: white;
+    color: #082b55;
+}
+
+.eventcrew-main-action span,
+.eventcrew-action-card span {
+    font-size: 25px;
+}
+
+
+/* Sections */
+
+.eventcrew-organization-section h2 {
+    margin: 0;
+    color: #082b55;
+    font-size: 23px;
+}
+
+.eventcrew-organization-section > p {
+    color: #667788;
+}
+
+.eventcrew-organization-section-header {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.eventcrew-organization-section-header a {
+    color: #667788;
+    text-decoration: none;
+}
+
+.eventcrew-organization-section-header a:hover {
+    color: #19b8aa;
+}
+
+
+/* Opportunity cards */
+
+.eventcrew-organization-opportunity {
+    margin-bottom: 15px;
+    padding: 22px;
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+}
+
+.eventcrew-organization-opportunity-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.eventcrew-organization-opportunity-top h3 {
+    margin: 0 0 7px;
+    color: #082b55;
+}
+
+.eventcrew-organization-opportunity-top p {
+    margin: 0;
+    color: #667788;
+    font-size: 14px;
+}
+
+.eventcrew-organization-opportunity-top > span {
+    height: fit-content;
+    padding: 6px 13px;
+    background: #ddf7f4;
+    color: #159f94;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.eventcrew-organization-opportunity-info {
+    margin: 20px 0;
+    display: flex;
+    gap: 30px;
+}
+
+.eventcrew-organization-opportunity-info p {
+    margin: 0;
+    color: #667788;
+}
+
+.eventcrew-organization-opportunity-info strong {
+    color: #082b55;
+}
+
+.eventcrew-organization-opportunity-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.eventcrew-organization-opportunity-buttons a {
+    padding: 9px 16px;
+    border: 1px solid #d5e2e5;
+    border-radius: 7px;
+    color: #082b55;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.eventcrew-organization-opportunity-buttons a:hover {
+    border-color: #19b8aa;
+    color: #19b8aa;
+}
+
+
+/* Applications review */
+
+.eventcrew-review-message {
+    padding: 25px;
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+}
+
+.eventcrew-review-message p {
+    margin: 0 0 15px;
+    color: #667788;
+}
+
+.eventcrew-review-message a {
+    color: #19b8aa;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* Sidebar */
+
+.eventcrew-organization-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.eventcrew-organization-sidebar-card {
+    padding: 25px;
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+}
+
+.eventcrew-organization-sidebar-card h3 {
+    margin: 0 0 20px;
+    color: #082b55;
+}
+
+.eventcrew-stat {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    color: #667788;
+}
+
+.eventcrew-stat strong {
+    color: #082b55;
+    font-size: 18px;
+}
+
+.eventcrew-organization-sidebar-card > a {
+    display: block;
+    margin-bottom: 18px;
+    color: #082b55;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.eventcrew-organization-sidebar-card > a:hover {
+    color: #19b8aa;
+}
+
+
+/* Login message */
+
+.eventcrew-organization-message {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #082b55;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .eventcrew-organization-home {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .eventcrew-organization-home {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .eventcrew-organization-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .eventcrew-organization-opportunity-info {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+}
