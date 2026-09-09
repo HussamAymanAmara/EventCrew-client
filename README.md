@@ -1,16 +1,99 @@
-# React + Vite
+# 🤝 EventCrew Frontend (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the frontend for **EventCrew**, a volunteer management web application built with **React + Vite**.
 
-Currently, two official plugins are available:
+## 🎯 Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+EventCrew connects volunteers with organizations that provide volunteering opportunities.
 
-## React Compiler
+The application supports two types of users:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 👤 Volunteers
 
-## Expanding the ESLint configuration
+- Register and log in
+- Browse available volunteer opportunities
+- Search and filter opportunities
+- View opportunity details
+- View required skills and opportunity information
+- Apply for opportunities
+- View application status
+- Withdraw applications
+- View upcoming opportunities
+- View volunteering history
+- Manage their profile
+- Select and update their skills
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🏢 Organizations
+
+- Register and log in
+- Create volunteer opportunities
+- Edit existing opportunities
+- Delete opportunities
+- Add opportunity images
+- Select required skills for opportunities
+- View their active opportunities
+- Review volunteer applications
+- Approve or reject applications
+- Manage their organization profile
+
+The application uses the EventCrew backend API to store and retrieve data from the PostgreSQL database.
+
+## 🧑‍💻 User Requirements
+
+### Volunteers
+
+- Sign up using personal information, email, and password
+- Log in using a registered account
+- Browse available opportunities
+- Filter and search for opportunities
+- View full opportunity details
+- Apply for an opportunity
+- View application status
+- Withdraw an application when needed
+- View upcoming and previous opportunities
+- Update personal profile information
+- Select and save personal skills
+
+### Organizations
+
+- Sign up using organization and contact information
+- Log in using a registered organization account
+- Create new volunteering opportunities
+- Add opportunity details such as:
+  - Title
+  - Description
+  - Category
+  - Opportunity type
+  - Compensation
+  - Date and time
+  - Location
+  - Number of volunteers needed
+  - Minimum age
+  - Required skills
+- Edit existing opportunities
+- Delete opportunities
+- View applications submitted by volunteers
+- Approve or reject applications
+- Update organization profile information
+
+The application stores the logged-in user information using **localStorage**.
+
+## 🛠️ Technologies
+
+- React
+- Vite
+- JavaScript
+- React Router
+- Axios
+- HTML
+- CSS
+- LocalStorage
+- REST API
+- Open-Meteo API for opportunity weather information
+
+## 🚀 Getting Started
+
+Clone the frontend repository:
+
+```bash
+git clone https://github.com/HussamAymanAmara/EventCrew-client.git
