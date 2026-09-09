@@ -1,3 +1,4 @@
+import API_URL from "../../config";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./CSS/OpportunitySkills.css";
@@ -9,7 +10,7 @@ function OpportunitySkills(props) {
     useEffect(() => {
         axios
             .get(
-                `http://localhost:5000/api/opportunities/${props.opportunityId}/skills`
+                `${API_URL}/api/opportunities/${props.opportunityId}/skills`
             )
             .then((response) => {
                 setSkills(response.data);

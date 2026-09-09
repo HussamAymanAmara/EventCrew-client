@@ -1,14 +1,24 @@
+import API_URL from "../../config";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 import "./CSS/OrganizationHome.css";
 
+
 function OrganizationHome() {
+
     const [opportunities, setOpportunities] = useState([]);
+
     const [openCount, setOpenCount] = useState(0);
+
     const [draftCount, setDraftCount] = useState(0);
 
-    const user = JSON.parse(localStorage.getItem("user"));
+
+    const user = JSON.parse(
+        localStorage.getItem("user")
+    );
+
 
     useEffect(() => {
 
@@ -16,88 +26,145 @@ function OrganizationHome() {
             return;
         }
 
+
         axios
             .get(
-                `http://localhost:5000/api/opportunities?organization_id=${user.user_id}`
+                `${API_URL}/api/opportunities?organization_id=${user.user_id}`
             )
             .then((response) => {
 
-                setOpportunities(response.data);
+                setOpportunities(
+                    response.data
+                );
+
 
                 let open = 0;
+
                 let draft = 0;
 
-                for (let i = 0; i < response.data.length; i++) {
 
-                    if (response.data[i].listing_status === "open") {
+                for (
+                    let i = 0;
+                    i < response.data.length;
+                    i++
+                ) {
+
+                    if (
+                        response.data[i].listing_status === "open"
+                    ) {
+
                         open++;
+
                     }
 
-                    if (response.data[i].listing_status === "draft") {
+
+                    if (
+                        response.data[i].listing_status === "draft"
+                    ) {
+
                         draft++;
+
                     }
+
                 }
 
+
                 setOpenCount(open);
+
                 setDraftCount(draft);
 
             })
             .catch((error) => {
+
                 console.log(error);
+
             });
 
     }, []);
 
-    if (!user || user.role !== "organization") {
+
+    if (
+        !user ||
+        user.role !== "organization"
+    ) {
+
         return (
+
             <div className="eventcrew-organization-message">
-                <h2>Please login as an organization first.</h2>
+
+                <h2>
+                    Please login as an organization first.
+                </h2>
+
             </div>
+
         );
+
     }
 
+
     return (
+
         <div className="eventcrew-organization-home">
+
 
             <div className="eventcrew-organization-main">
 
+
+                {/* Main actions */}
+
                 <section className="eventcrew-organization-actions">
 
+
                     <Link
-                        to="/organization/opportunities/create"
+                        to="/organization/create-opportunity"
                         className="eventcrew-main-action"
                     >
-                        <span>+</span>
-                        <strong>Post opportunity</strong>
+
+                        <span>
+                            +
+                        </span>
+
+                        <strong>
+                            Post opportunity
+                        </strong>
+
                     </Link>
+
 
                     <Link
                         to="/organization/applications"
                         className="eventcrew-action-card"
                     >
-                        <span>📋</span>
-                        <strong>Review applications</strong>
+
+                        <span>
+                            📋
+                        </span>
+
+                        <strong>
+                            Review applications
+                        </strong>
+
                     </Link>
 
-                    <Link
-                        to="/organization/attendance"
-                        className="eventcrew-action-card"
-                    >
-                        <span>✅</span>
-                        <strong>Record attendance</strong>
-                    </Link>
 
                 </section>
 
 
+                {/* Active opportunities */}
+
                 <section className="eventcrew-organization-section">
+
 
                     <div className="eventcrew-organization-section-header">
 
-                        <h2>Active opportunities</h2>
+                        <h2>
+                            Active opportunities
+                        </h2>
 
-                        <Link to="/organization/opportunities/create">
-                            + Post new →
+
+                        <Link to="/organization/dashboard">
+                            View more →
                         </Link>
 
                     </div>
@@ -105,115 +172,125 @@ function OrganizationHome() {
 
                     {opportunities.length === 0 ? (
 
-                        <p>You have not created any opportunities yet.</p>
+                        <p>
+                            You have not created any opportunities yet.
+                        </p>
 
                     ) : (
 
-                        opportunities.map((opportunity, index) => (
+                        opportunities.map(
+                            (opportunity, index) => (
 
-                            index < 3 && (
+                                index < 3 && (
 
-                                <div
-                                    className="eventcrew-organization-opportunity"
-                                    key={opportunity.opportunity_id}
-                                >
+                                    <div
+                                        className="eventcrew-organization-opportunity"
+                                        key={opportunity.opportunity_id}
+                                    >
 
-                                    <div className="eventcrew-organization-opportunity-top">
 
-                                        <div>
-                                            <h3>{opportunity.title}</h3>
+                                        <div className="eventcrew-organization-opportunity-top">
 
-                                            <p>
-                                                {new Date(
-                                                    opportunity.event_date
-                                                ).toLocaleDateString()}
-                                            </p>
+
+                                            <div>
+
+                                                <h3>
+                                                    {opportunity.title}
+                                                </h3>
+
+
+                                                <p>
+
+                                                    {new Date(
+                                                        opportunity.event_date
+                                                    ).toLocaleDateString()}
+
+                                                </p>
+
+                                            </div>
+
+
+                                            <span>
+                                                {opportunity.listing_status}
+                                            </span>
+
+
                                         </div>
 
-                                        <span>
-                                            {opportunity.listing_status}
-                                        </span>
+
+                                        <div className="eventcrew-organization-opportunity-info">
+
+
+                                            <p>
+
+                                                <strong>
+                                                    Volunteers needed:
+                                                </strong>
+                                                {" "}
+                                                {opportunity.volunteers_needed}
+
+                                            </p>
+
+
+                                            <p>
+
+                                                <strong>
+                                                    Location:
+                                                </strong>
+                                                {" "}
+                                                {opportunity.venue_name},
+                                                {" "}
+                                                {opportunity.city}
+
+                                            </p>
+
+
+                                        </div>
+
+
+                                        <div className="eventcrew-organization-opportunity-buttons">
+
+                                            <Link to="/organization/applications">
+                                                Applications
+                                            </Link>
+
+                                        </div>
+
 
                                     </div>
 
-
-                                    <div className="eventcrew-organization-opportunity-info">
-
-                                        <p>
-                                            <strong>Volunteers needed:</strong>{" "}
-                                            {opportunity.volunteers_needed}
-                                        </p>
-
-                                        <p>
-                                            <strong>Location:</strong>{" "}
-                                            {opportunity.venue_name}, {opportunity.city}
-                                        </p>
-
-                                    </div>
-
-
-                                    <div className="eventcrew-organization-opportunity-buttons">
-
-                                        <Link to="/organization/applications">
-                                            Applications
-                                        </Link>
-
-                                        <Link to="/organization/attendance">
-                                            Attendance
-                                        </Link>
-
-                                    </div>
-
-                                </div>
+                                )
 
                             )
-
-                        ))
+                        )
 
                     )}
 
-                </section>
-
-
-                <section className="eventcrew-organization-section">
-
-                    <div className="eventcrew-organization-section-header">
-
-                        <h2>Applications needing review</h2>
-
-                        <Link to="/organization/applications">
-                            View all →
-                        </Link>
-
-                    </div>
-
-                    <div className="eventcrew-review-message">
-
-                        <p>
-                            Open the applications page to review volunteer
-                            applications for your opportunities.
-                        </p>
-
-                        <Link to="/organization/applications">
-                            Review applications
-                        </Link>
-
-                    </div>
 
                 </section>
+
 
             </div>
 
 
+            {/* Sidebar */}
+
             <div className="eventcrew-organization-sidebar">
+
 
                 <div className="eventcrew-organization-sidebar-card">
 
-                    <h3>Opportunities</h3>
+
+                    <h3>
+                        Opportunities
+                    </h3>
+
 
                     <div className="eventcrew-stat">
 
-                        <span>Total opportunities</span>
+                        <span>
+                            Total opportunities
+                        </span>
 
                         <strong>
                             {opportunities.length}
@@ -221,9 +298,12 @@ function OrganizationHome() {
 
                     </div>
 
+
                     <div className="eventcrew-stat">
 
-                        <span>Open opportunities</span>
+                        <span>
+                            Open opportunities
+                        </span>
 
                         <strong>
                             {openCount}
@@ -231,9 +311,12 @@ function OrganizationHome() {
 
                     </div>
 
+
                     <div className="eventcrew-stat">
 
-                        <span>Draft opportunities</span>
+                        <span>
+                            Draft opportunities
+                        </span>
 
                         <strong>
                             {draftCount}
@@ -241,43 +324,54 @@ function OrganizationHome() {
 
                     </div>
 
+
                 </div>
 
 
                 <div className="eventcrew-organization-sidebar-card">
 
-                    <h3>Pages</h3>
+
+                    <h3>
+                        Pages
+                    </h3>
+
 
                     <Link to="/organization/dashboard">
                         📊 Dashboard
                     </Link>
 
-                    <Link to="/organization/opportunities/create">
+
+                    <Link to="/organization/create-opportunity">
                         + Post opportunity
                     </Link>
+
 
                     <Link to="/organization/applications">
                         📋 Applications
                     </Link>
 
-                    <Link to="/organization/attendance">
-                        ✅ Attendance
-                    </Link>
 
                     <Link to="/organization/profile">
                         👤 Our profile
                     </Link>
 
+
                     <Link to="/organization/profile/edit">
                         ✏️ Edit profile
                     </Link>
 
+
                 </div>
+
 
             </div>
 
+
         </div>
+
     );
+
 }
+
 
 export default OrganizationHome;

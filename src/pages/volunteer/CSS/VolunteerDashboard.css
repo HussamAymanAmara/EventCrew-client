@@ -1,0 +1,165 @@
+.eventcrew-volunteer-dashboard {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+
+/* Header */
+
+.eventcrew-dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.eventcrew-dashboard-header h1 {
+    margin: 0;
+    color: #082b55;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.eventcrew-dashboard-header p {
+    margin: 7px 0 0;
+    color: #667788;
+    font-size: 14px;
+}
+
+.eventcrew-dashboard-header > a {
+    padding: 10px 16px;
+    background: #082b55;
+    color: white;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.eventcrew-dashboard-header > a:hover {
+    background: #19b8aa;
+}
+
+
+/* Main layout */
+
+.eventcrew-dashboard-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 25px;
+    align-items: start;
+}
+
+.eventcrew-dashboard-main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+/* Dashboard sections */
+
+.eventcrew-dashboard-section {
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.eventcrew-dashboard-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.eventcrew-dashboard-section-header h2 {
+    margin: 0;
+    color: #082b55;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.eventcrew-dashboard-section-header a {
+    color: #19b8aa;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.eventcrew-dashboard-section-header a:hover {
+    text-decoration: underline;
+}
+
+
+/* Empty state */
+
+.eventcrew-dashboard-empty {
+    margin: 0;
+    padding: 20px 0;
+    color: #667788;
+    font-size: 14px;
+}
+
+
+/* Login message */
+
+.eventcrew-dashboard-message {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.eventcrew-dashboard-message h2 {
+    margin: 0;
+    color: #082b55;
+    font-size: 22px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .eventcrew-dashboard-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .eventcrew-volunteer-dashboard {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+
+    .eventcrew-dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+
+    .eventcrew-dashboard-header h1 {
+        font-size: 26px;
+    }
+
+
+    .eventcrew-dashboard-section {
+        padding: 18px;
+    }
+
+
+    .eventcrew-dashboard-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+}

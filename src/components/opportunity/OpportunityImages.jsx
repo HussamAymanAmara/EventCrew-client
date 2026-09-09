@@ -1,3 +1,4 @@
+import API_URL from "../../config";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./CSS/OpportunityImages.css";
@@ -10,7 +11,7 @@ function OpportunityImages(props) {
     useEffect(() => {
         axios
             .get(
-                `http://localhost:5000/api/opportunities/${props.opportunityId}/images`
+                `${API_URL}/api/opportunities/${props.opportunityId}/images`
             )
             .then((response) => {
                 setImages(response.data);

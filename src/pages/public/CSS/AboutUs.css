@@ -1,0 +1,48 @@
+.eventcrew-about-page {
+    min-height: 70vh;
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+
+.eventcrew-about-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+.eventcrew-about-container h1 {
+    margin-bottom: 15px;
+    font-size: 38px;
+    color: #062f5f;
+}
+
+
+.eventcrew-about-intro {
+    margin-bottom: 40px;
+    max-width: 750px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #5f6f82;
+}
+
+
+.eventcrew-about-section {
+    margin-bottom: 30px;
+    padding: 25px;
+    border: 1px solid #dbe5ea;
+    border-radius: 12px;
+}
+
+
+.eventcrew-about-section h2 {
+    margin-bottom: 10px;
+    color: #062f5f;
+}
+
+
+.eventcrew-about-section p {
+    margin: 0;
+    line-height: 1.7;
+    color: #5f6f82;
+}

@@ -1,0 +1,76 @@
+.eventcrew-delete-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.eventcrew-delete-modal {
+    width: 90%;
+    max-width: 420px;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+.eventcrew-delete-modal h2 {
+    margin-top: 0;
+    color: #002b5b;
+}
+
+.eventcrew-delete-modal p {
+    color: #667788;
+    margin: 20px 0 25px;
+}
+
+.eventcrew-delete-modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.eventcrew-delete-modal-cancel,
+.eventcrew-delete-modal-confirm {
+    min-width: 110px;
+
+    padding: 10px 16px;
+
+    border-radius: 7px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.eventcrew-delete-modal-cancel {
+    background: white;
+    border: 1px solid #002b5b;
+    color: #002b5b;
+}
+
+.eventcrew-delete-modal-cancel:hover {
+    background: #f4f7f8;
+}
+
+.eventcrew-delete-modal-confirm {
+    background: #c0392b;
+    border: 1px solid #c0392b;
+    color: white;
+}
+
+.eventcrew-delete-modal-confirm:hover {
+    background: #a93226;
+}

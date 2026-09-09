@@ -1,0 +1,199 @@
+.eventcrew-edit-org-page {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+
+/* Back link */
+
+.eventcrew-edit-org-back {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #0aa79b;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.eventcrew-edit-org-back:hover {
+    text-decoration: underline;
+}
+
+
+/* Header */
+
+.eventcrew-edit-org-header {
+    margin-bottom: 25px;
+}
+
+.eventcrew-edit-org-header h1 {
+    margin: 0 0 8px;
+    color: #002b5b;
+    font-size: 30px;
+}
+
+.eventcrew-edit-org-header p {
+    margin: 0;
+    color: #667788;
+    font-size: 15px;
+}
+
+
+/* Main form container */
+
+.eventcrew-org-profile-form {
+    background: white;
+    border: 1px solid #dbe5e7;
+    border-radius: 14px;
+    padding: 30px;
+}
+
+
+/* Form section titles */
+
+.eventcrew-org-profile-form h2 {
+    color: #002b5b;
+    font-size: 19px;
+    margin: 30px 0 18px;
+}
+
+.eventcrew-org-profile-form h2:first-child {
+    margin-top: 0;
+}
+
+
+/* Rows */
+
+.eventcrew-org-profile-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+
+/* Form group */
+
+.eventcrew-org-profile-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.eventcrew-org-profile-form-group label {
+    margin-bottom: 7px;
+    color: #002b5b;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* Inputs */
+
+.eventcrew-org-profile-form-group input,
+.eventcrew-org-profile-form-group textarea,
+.eventcrew-org-profile-form-group select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 12px;
+    border: 1px solid #d6e0e0;
+    border-radius: 7px;
+    background: white;
+    color: #002b5b;
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.eventcrew-org-profile-form-group input:focus,
+.eventcrew-org-profile-form-group textarea:focus,
+.eventcrew-org-profile-form-group select:focus {
+    outline: none;
+    border-color: #0aa79b;
+}
+
+
+/* Textarea */
+
+.eventcrew-org-profile-form-group textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+
+/* Buttons */
+
+.eventcrew-org-profile-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.eventcrew-org-profile-save-button {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 7px;
+    background: #002b5b;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.eventcrew-org-profile-save-button:hover {
+    background: #0aa79b;
+}
+
+.eventcrew-org-profile-cancel-button {
+    padding: 11px 20px;
+    border: 1px solid #002b5b;
+    border-radius: 7px;
+    background: white;
+    color: #002b5b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.eventcrew-org-profile-cancel-button:hover {
+    background: #f4f7f8;
+}
+
+
+/* Message */
+
+.eventcrew-edit-org-message {
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #002b5b;
+}
+
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .eventcrew-edit-org-page {
+        margin: 30px auto;
+    }
+
+    .eventcrew-org-profile-form {
+        padding: 20px;
+    }
+
+    .eventcrew-org-profile-form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .eventcrew-org-profile-form-actions {
+        flex-direction: column;
+    }
+
+    .eventcrew-org-profile-save-button,
+    .eventcrew-org-profile-cancel-button {
+        width: 100%;
+        text-align: center;
+    }
+
+}

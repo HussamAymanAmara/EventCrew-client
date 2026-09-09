@@ -1,0 +1,113 @@
+.eventcrew-org-profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.eventcrew-org-profile-form-section {
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.eventcrew-org-profile-form-section h2 {
+    margin: 0 0 20px;
+    color: #082b55;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.eventcrew-org-profile-form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.eventcrew-org-profile-form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 18px;
+}
+
+.eventcrew-org-profile-form-group label {
+    margin-bottom: 7px;
+    color: #082b55;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.eventcrew-org-profile-form-group input,
+.eventcrew-org-profile-form-group textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #d9e3e3;
+    border-radius: 7px;
+    box-sizing: border-box;
+    background: white;
+    font-size: 14px;
+}
+
+.eventcrew-org-profile-form-group textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.eventcrew-org-profile-form-group input:focus,
+.eventcrew-org-profile-form-group textarea:focus {
+    outline: none;
+    border-color: #19b8aa;
+}
+
+
+/* Actions */
+
+.eventcrew-org-profile-form-actions {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 12px;
+}
+
+.eventcrew-org-profile-form-cancel,
+.eventcrew-org-profile-form-save {
+    min-height: 44px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.eventcrew-org-profile-form-cancel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    color: #082b55;
+    border: 1px solid #d9e3e3;
+    text-decoration: none;
+}
+
+.eventcrew-org-profile-form-save {
+    background: #082b55;
+    color: white;
+    border: 1px solid #082b55;
+    cursor: pointer;
+}
+
+.eventcrew-org-profile-form-save:hover {
+    background: #19b8aa;
+    border-color: #19b8aa;
+}
+
+
+@media (max-width: 650px) {
+
+    .eventcrew-org-profile-form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .eventcrew-org-profile-form-actions {
+        grid-template-columns: 1fr;
+    }
+
+}

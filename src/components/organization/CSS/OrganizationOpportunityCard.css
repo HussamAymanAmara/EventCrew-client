@@ -1,0 +1,151 @@
+.eventcrew-org-opportunity-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid #edf2f2;
+}
+
+.eventcrew-org-opportunity-card:last-child {
+    border-bottom: none;
+}
+
+.eventcrew-org-opportunity-info {
+    flex: 1;
+}
+
+.eventcrew-org-opportunity-card h3 {
+    margin: 0 0 6px;
+    color: #082b55;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.eventcrew-org-opportunity-card p {
+    margin: 0;
+    color: #667788;
+    font-size: 13px;
+}
+
+
+/* Actions */
+
+.eventcrew-org-opportunity-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* Status */
+
+.eventcrew-org-opportunity-status {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.eventcrew-org-opportunity-status.open {
+    background: #ddf7f4;
+    color: #159f94;
+}
+
+.eventcrew-org-opportunity-status.draft {
+    background: #fff4d6;
+    color: #b7791f;
+}
+
+.eventcrew-org-opportunity-status.completed {
+    background: #e8edf4;
+    color: #526273;
+}
+
+.eventcrew-org-opportunity-status.cancelled {
+    background: #fde8e8;
+    color: #d9534f;
+}
+
+
+/* Buttons */
+
+.eventcrew-org-opportunity-view,
+.eventcrew-org-opportunity-edit,
+.eventcrew-org-opportunity-delete {
+    height: 34px;
+    padding: 0 12px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+/* View */
+
+.eventcrew-org-opportunity-view {
+    background: white;
+    border: 1px solid #082b55;
+    color: #082b55;
+}
+
+.eventcrew-org-opportunity-view:hover {
+    background: #082b55;
+    color: white;
+}
+
+
+/* Edit */
+
+.eventcrew-org-opportunity-edit {
+    background: white;
+    border: 1px solid #19b8aa;
+    color: #159f94;
+}
+
+.eventcrew-org-opportunity-edit:hover {
+    background: #19b8aa;
+    color: white;
+}
+
+
+/* Delete */
+
+.eventcrew-org-opportunity-delete {
+    background: white;
+    border: 1px solid #c0392b;
+    color: #c0392b;
+    cursor: pointer;
+}
+
+.eventcrew-org-opportunity-delete:hover {
+    background: #c0392b;
+    color: white;
+}
+
+
+/* Responsive */
+
+@media (max-width: 650px) {
+
+    .eventcrew-org-opportunity-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .eventcrew-org-opportunity-actions {
+        flex-wrap: wrap;
+    }
+
+}

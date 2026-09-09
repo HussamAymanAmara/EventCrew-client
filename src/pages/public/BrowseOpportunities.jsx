@@ -1,3 +1,4 @@
+import API_URL from "../../config";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -23,7 +24,7 @@ function BrowseOpportunities() {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/api/categories")
+            .get(`${API_URL}/api/categories`)
             .then((response) => {
                 setCategories(response.data);
             })
@@ -38,7 +39,7 @@ function BrowseOpportunities() {
 
         axios
             .get(
-                `http://localhost:5000/api/opportunities?search=${search}&category_id=${categoryId}&city=${city}&status=open&compensation=${compensation}&date=${date}&sort=${sort}`
+                `${API_URL}/api/opportunities?search=${search}&category_id=${categoryId}&city=${city}&status=open&compensation=${compensation}&date=${date}&sort=${sort}`
             )
             .then((response) => {
                 setOpportunities(response.data);
@@ -59,7 +60,7 @@ function BrowseOpportunities() {
 
         axios
             .get(
-                `http://localhost:5000/api/opportunities?search=${search}&category_id=${categoryId}&city=${city}&status=open&compensation=${compensation}&date=${date}&sort=${sort}`
+                `${API_URL}/api/opportunities?search=${search}&category_id=${categoryId}&city=${city}&status=open&compensation=${compensation}&date=${date}&sort=${sort}`
             )
             .then((response) => {
                 setOpportunities(response.data);

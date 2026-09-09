@@ -1,0 +1,77 @@
+.eventcrew-completed-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid #edf2f2;
+}
+
+.eventcrew-completed-card:last-child {
+    border-bottom: none;
+}
+
+.eventcrew-completed-card h3 {
+    margin: 0 0 6px;
+    color: #082b55;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.eventcrew-completed-card p {
+    margin: 0;
+    color: #667788;
+    font-size: 13px;
+}
+
+.eventcrew-completed-card-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eventcrew-completed-status {
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.eventcrew-completed-status.finished {
+    background: #ddf7f4;
+    color: #159f94;
+}
+
+.eventcrew-completed-status.rejected {
+    background: #fde8e8;
+    color: #d9534f;
+}
+
+.eventcrew-completed-details-button {
+    padding: 8px 12px;
+    background: white;
+    color: #082b55;
+    border: 1px solid #082b55;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.eventcrew-completed-details-button:hover {
+    background: #082b55;
+    color: white;
+}
+
+@media (max-width: 650px) {
+
+    .eventcrew-completed-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .eventcrew-completed-card-right {
+        flex-wrap: wrap;
+    }
+
+}

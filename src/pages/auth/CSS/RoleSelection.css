@@ -1,0 +1,76 @@
+.eventcrew-role-page {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.eventcrew-role-card {
+    width: 100%;
+    max-width: 850px;
+    text-align: center;
+}
+
+.eventcrew-role-card h1 {
+    color: #082b55;
+    margin-bottom: 8px;
+}
+
+.eventcrew-role-card > p {
+    color: #667788;
+}
+
+.eventcrew-role-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.eventcrew-role-option {
+    padding: 30px;
+    border: 1px solid #dfe8e8;
+    border-radius: 12px;
+    background: white;
+    text-decoration: none;
+}
+
+.eventcrew-role-option:hover {
+    border-color: #19b8aa;
+}
+
+.eventcrew-role-option h2 {
+    color: #082b55;
+}
+
+.eventcrew-role-option p {
+    color: #667788;
+    margin: 15px 0 25px;
+}
+
+.eventcrew-role-option span {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 7px;
+    background: #082b55;
+    color: white;
+}
+
+.eventcrew-role-login {
+    margin-top: 25px;
+}
+
+.eventcrew-role-login a {
+    color: #19b8aa;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+@media (max-width: 650px) {
+
+    .eventcrew-role-options {
+        grid-template-columns: 1fr;
+    }
+
+}

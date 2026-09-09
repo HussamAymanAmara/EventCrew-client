@@ -1,0 +1,58 @@
+.eventcrew-edit-opportunity-page {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+
+/* Header */
+
+.eventcrew-edit-opportunity-header {
+    margin-bottom: 30px;
+}
+
+.eventcrew-edit-opportunity-header h1 {
+    margin: 0;
+    color: #082b55;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.eventcrew-edit-opportunity-header p {
+    margin: 7px 0 0;
+    color: #667788;
+    font-size: 14px;
+}
+
+
+/* Login message */
+
+.eventcrew-edit-opportunity-message {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.eventcrew-edit-opportunity-message h2 {
+    margin: 0;
+    color: #082b55;
+    font-size: 22px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 600px) {
+
+    .eventcrew-edit-opportunity-page {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .eventcrew-edit-opportunity-header h1 {
+        font-size: 26px;
+    }
+
+}

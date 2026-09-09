@@ -1,0 +1,55 @@
+.eventcrew-contact-page {
+    min-height: 70vh;
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+
+.eventcrew-contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+.eventcrew-contact-container h1 {
+    margin-bottom: 15px;
+    font-size: 38px;
+    color: #062f5f;
+}
+
+
+.eventcrew-contact-container>p {
+    margin-bottom: 35px;
+    color: #5f6f82;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+.eventcrew-contact-card {
+    padding: 30px;
+    border: 1px solid #dbe5ea;
+    border-radius: 12px;
+}
+
+
+.eventcrew-contact-card div {
+    margin-bottom: 25px;
+}
+
+
+.eventcrew-contact-card div:last-child {
+    margin-bottom: 0;
+}
+
+
+.eventcrew-contact-card h3 {
+    margin-bottom: 5px;
+    color: #062f5f;
+}
+
+
+.eventcrew-contact-card p {
+    margin: 0;
+    color: #5f6f82;
+}

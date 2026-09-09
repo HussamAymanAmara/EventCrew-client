@@ -1,13 +1,22 @@
+import API_URL from "../../config";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 import "./CSS/VolunteerHome.css";
 
+
 function VolunteerHome() {
+
     const [applications, setApplications] = useState([]);
+
     const [opportunities, setOpportunities] = useState([]);
 
-    const user = JSON.parse(localStorage.getItem("user"));
+
+    const user = JSON.parse(
+        localStorage.getItem("user")
+    );
+
 
     useEffect(() => {
 
@@ -15,9 +24,10 @@ function VolunteerHome() {
             return;
         }
 
+
         axios
             .get(
-                `http://localhost:5000/api/applications/volunteer/${user.user_id}`,
+                `${API_URL}/api/applications/volunteer/${user.user_id}`,
                 {
                     headers: {
                         "x-role": "volunteer"
@@ -25,248 +35,427 @@ function VolunteerHome() {
                 }
             )
             .then((response) => {
-                setApplications(response.data);
+
+                setApplications(
+                    response.data
+                );
+
             })
             .catch((error) => {
+
                 console.log(error);
+
             });
 
 
         axios
             .get(
-                "http://localhost:5000/api/opportunities?status=open&sort=newest"
+                `${API_URL}/api/opportunities?status=open&sort=newest`
             )
             .then((response) => {
-                setOpportunities(response.data);
+
+                setOpportunities(
+                    response.data
+                );
+
             })
             .catch((error) => {
+
                 console.log(error);
+
             });
 
     }, []);
 
-    if (!user || user.role !== "volunteer") {
+
+    if (
+        !user ||
+        user.role !== "volunteer"
+    ) {
+
         return (
+
             <div className="eventcrew-volunteer-message">
-                <h2>Please login as a volunteer first.</h2>
+
+                <h2>
+                    Please login as a volunteer first.
+                </h2>
+
             </div>
+
         );
+
     }
 
+
+    const today = new Date();
+
+
+    const upcomingApplications =
+        applications.filter((application) => {
+
+            const eventDate =
+                new Date(
+                    application.event_date
+                );
+
+
+            return (
+
+                application.status === "pending" ||
+
+                application.status === "under_review" ||
+
+                (
+                    (
+                        application.status === "approved" ||
+                        application.status === "confirmed"
+                    ) &&
+                    eventDate >= today
+                )
+
+            );
+
+        });
+
+
     return (
+
         <div className="eventcrew-volunteer-home">
+
 
             <div className="eventcrew-volunteer-main">
 
+
+                {/* Upcoming events */}
+
                 <section className="eventcrew-home-section">
 
-                    <div className="eventcrew-section-header">
-                        <h2>Your Upcoming Events</h2>
 
-                        <Link to="/volunteer/applications">
+                    <div className="eventcrew-section-header">
+
+                        <h2>
+                            Your Upcoming Events
+                        </h2>
+
+
+                        <Link to="/volunteer/dashboard">
                             View all →
                         </Link>
+
                     </div>
 
-                    {applications.length === 0 ? (
 
-                        <p>You do not have any applications yet.</p>
+                    {upcomingApplications.length === 0 ? (
+
+                        <p>
+                            No upcoming opportunities.
+                        </p>
 
                     ) : (
 
-                        applications.map((application, index) => (
+                        upcomingApplications.map(
+                            (application) => (
 
-                            index < 2 && (
-
-                                <div
-                                    className="eventcrew-upcoming-card"
+                                <Link
+                                    to={`/opportunities/${application.opportunity_id}`}
+                                    className="eventcrew-upcoming-card-link"
                                     key={application.application_id}
                                 >
 
-                                    <div>
-                                        <h3>{application.title}</h3>
+                                    <div className="eventcrew-upcoming-card">
 
-                                        <p>
-                                            {new Date(
-                                                application.event_date
-                                            ).toLocaleDateString()}
-                                            {" · "}
-                                            {application.start_time}
-                                            {" · "}
-                                            {application.city}
-                                        </p>
+
+                                        <div>
+
+                                            <h3>
+                                                {application.title}
+                                            </h3>
+
+
+                                            <p>
+
+                                                {new Date(
+                                                    application.event_date
+                                                ).toLocaleDateString()}
+
+                                                {" · "}
+
+                                                {application.start_time}
+
+                                                {" · "}
+
+                                                {application.city}
+
+                                            </p>
+
+                                        </div>
+
+
+                                        <span
+                                            className={`eventcrew-home-status ${application.status}`}
+                                        >
+                                            {application.status}
+                                        </span>
+
+
                                     </div>
 
-                                    <span className="eventcrew-status">
-                                        {application.status}
-                                    </span>
-
-                                </div>
+                                </Link>
 
                             )
-
-                        ))
+                        )
 
                     )}
+
 
                 </section>
 
 
+                {/* Recommended opportunities */}
+
                 <section className="eventcrew-home-section">
 
+
                     <div className="eventcrew-section-header">
+
                         <div>
-                            <h2>Recommended for You</h2>
-                            <p>Explore the latest volunteer opportunities</p>
+
+                            <h2>
+                                Recommended for You
+                            </h2>
+
+                            <p>
+                                Explore the latest volunteer opportunities
+                            </p>
+
                         </div>
+
 
                         <Link to="/opportunities">
                             Browse all →
                         </Link>
-                    </div>
-
-
-                    <div className="eventcrew-recommended-grid">
-
-                        {opportunities.map((opportunity, index) => (
-
-                            index < 4 && (
-
-                                <div
-                                    className="eventcrew-recommended-card"
-                                    key={opportunity.opportunity_id}
-                                >
-
-                                    <div className="eventcrew-recommended-image">
-                                        Opportunity
-                                    </div>
-
-                                    <div className="eventcrew-recommended-content">
-
-                                        <div className="eventcrew-recommended-top">
-
-                                            <span>
-                                                {opportunity.opportunity_type}
-                                            </span>
-
-                                            <span>
-                                                {opportunity.compensation_type}
-                                            </span>
-
-                                        </div>
-
-                                        <h3>{opportunity.title}</h3>
-
-                                        <p>
-                                            {opportunity.city}
-                                        </p>
-
-                                        <div className="eventcrew-recommended-bottom">
-
-                                            <span>
-                                                {new Date(
-                                                    opportunity.event_date
-                                                ).toLocaleDateString()}
-                                            </span>
-
-                                            <span>
-                                                {opportunity.spots_remaining} spots left
-                                            </span>
-
-                                        </div>
-
-                                        <Link
-                                            to={`/opportunities/${opportunity.opportunity_id}`}
-                                        >
-                                            View Details
-                                        </Link>
-
-                                    </div>
-
-                                </div>
-
-                            )
-
-                        ))}
 
                     </div>
 
-                </section>
 
-            </div>
+                    {opportunities.length === 0 ? (
 
-
-            <div className="eventcrew-volunteer-sidebar">
-
-                <div className="eventcrew-sidebar-card">
-
-                    <h3>Volunteer Hours</h3>
-
-                    <p className="eventcrew-hours-message">
-                        Your completed volunteer hours will appear here after attendance is recorded.
-                    </p>
-
-                </div>
-
-
-                <div className="eventcrew-sidebar-card">
-
-                    <h3>Quick Actions</h3>
-
-                    <Link to="/opportunities">
-                        🔍 Browse opportunities
-                    </Link>
-
-                    <Link to="/volunteer/applications">
-                        📋 View my applications
-                    </Link>
-
-                    <Link to="/volunteer/profile">
-                        👤 My profile
-                    </Link>
-
-                </div>
-
-
-                <div className="eventcrew-sidebar-card">
-
-                    <h3>Recent Activity</h3>
-
-                    {applications.length === 0 ? (
-
-                        <p>No recent activity.</p>
+                        <p>
+                            No opportunities available.
+                        </p>
 
                     ) : (
 
-                        applications.map((application, index) => (
+                        <div className="eventcrew-home-opportunity-grid">
 
-                            index < 3 && (
 
-                                <div
-                                    className="eventcrew-activity"
-                                    key={application.application_id}
-                                >
+                            {opportunities
+                                .slice(0, 4)
+                                .map((opportunity) => (
 
-                                    <strong>{application.title}</strong>
+                                    <div
+                                        className="eventcrew-home-opportunity-card"
+                                        key={opportunity.opportunity_id}
+                                    >
 
-                                    <p>
-                                        Application status: {application.status}
-                                    </p>
 
-                                </div>
+                                        <div className="eventcrew-home-opportunity-top">
 
-                            )
 
-                        ))
+                                            <span className="eventcrew-home-opportunity-category">
+
+                                                {
+                                                    opportunity.category_name ||
+                                                    opportunity.opportunity_type
+                                                }
+
+                                            </span>
+
+
+                                            <span className="eventcrew-home-opportunity-spots">
+
+                                                {
+                                                    opportunity.spots_remaining
+                                                } spots left
+
+                                            </span>
+
+
+                                        </div>
+
+
+                                        <h3>
+                                            {opportunity.title}
+                                        </h3>
+
+
+                                        {opportunity.organization_name && (
+
+                                            <p className="eventcrew-home-opportunity-organization">
+
+                                                {
+                                                    opportunity.organization_name
+                                                }
+
+                                            </p>
+
+                                        )}
+
+
+                                        <div className="eventcrew-home-opportunity-details">
+
+
+                                            <p>
+
+                                                <span>
+                                                    📍
+                                                </span>
+
+                                                {opportunity.city}
+
+                                            </p>
+
+
+                                            <p>
+
+                                                <span>
+                                                    📅
+                                                </span>
+
+                                                {new Date(
+                                                    opportunity.event_date
+                                                ).toLocaleDateString()}
+
+                                            </p>
+
+
+                                        </div>
+
+
+                                        <div className="eventcrew-home-opportunity-footer">
+
+
+                                            <span className="eventcrew-home-opportunity-compensation">
+
+                                                {
+                                                    opportunity.compensation_type
+                                                }
+
+                                            </span>
+
+
+                                            <Link
+                                                to={`/opportunities/${opportunity.opportunity_id}`}
+                                            >
+                                                View Details
+                                            </Link>
+
+
+                                        </div>
+
+
+                                    </div>
+
+                                ))}
+
+
+                        </div>
 
                     )}
 
-                </div>
+
+                </section>
+
 
             </div>
 
+
+            {/* Sidebar */}
+
+            <div className="eventcrew-volunteer-sidebar">
+
+
+                <div className="eventcrew-sidebar-card">
+
+                    <h3>
+                        Quick Actions
+                    </h3>
+
+
+                    <Link to="/opportunities">
+                        Browse Opportunities
+                    </Link>
+
+
+                    <Link to="/volunteer/history">
+                        History
+                    </Link>
+
+
+                    <Link to="/volunteer/profile">
+                        My Profile
+                    </Link>
+
+                </div>
+
+
+                <div className="eventcrew-sidebar-card">
+
+                    <h3>
+                        Recent Activity
+                    </h3>
+
+
+                    {applications.length === 0 ? (
+
+                        <p>
+                            No recent activity.
+                        </p>
+
+                    ) : (
+
+                        applications.map(
+                            (application, index) => (
+
+                                index < 3 && (
+
+                                    <div
+                                        className="eventcrew-activity"
+                                        key={application.application_id}
+                                    >
+
+                                        <strong>
+                                            {application.title}
+                                        </strong>
+
+
+                                        <p>
+                                            Application status:{" "}
+                                            {application.status}
+                                        </p>
+
+                                    </div>
+
+                                )
+
+                            )
+                        )
+
+                    )}
+
+
+                </div>
+
+
+            </div>
+
+
         </div>
+
     );
+
 }
+
 
 export default VolunteerHome;

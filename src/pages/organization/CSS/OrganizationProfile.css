@@ -1,0 +1,401 @@
+.eventcrew-org-profile-page {
+    max-width: 910px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+
+/* Header */
+
+.eventcrew-org-profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    border: 1px solid #dbe5e7;
+    border-radius: 14px;
+    background: white;
+    margin-bottom: 22px;
+}
+
+.eventcrew-org-profile-header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.eventcrew-org-profile-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.eventcrew-org-profile-logo-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    background: #d9f4f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #16a797;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.eventcrew-org-profile-header h1 {
+    margin: 0 0 8px;
+    color: #002b5b;
+    font-size: 28px;
+}
+
+.eventcrew-org-profile-tagline {
+    margin: 0;
+    color: #667788;
+}
+
+.eventcrew-org-profile-edit {
+    text-decoration: none;
+    border: 1px solid #002b5b;
+    color: #002b5b;
+    padding: 10px 16px;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.eventcrew-org-profile-edit:hover {
+    background: #002b5b;
+    color: white;
+}
+
+
+/* Content layout */
+
+.eventcrew-org-profile-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+
+/* About box takes the full width */
+
+.eventcrew-org-profile-content .eventcrew-org-profile-card:first-child {
+    grid-column: 1 / -1;
+}
+
+
+/* Cards */
+
+.eventcrew-org-profile-card {
+    background: white;
+    border: 1px solid #dbe5e7;
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.eventcrew-org-profile-card h2 {
+    margin: 0 0 20px;
+    color: #002b5b;
+    font-size: 19px;
+}
+
+.eventcrew-org-profile-about {
+    color: #586b7b;
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* Details */
+
+.eventcrew-org-profile-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 11px 0;
+    border-bottom: 1px solid #e7edef;
+}
+
+.eventcrew-org-profile-detail:last-child {
+    border-bottom: none;
+}
+
+.eventcrew-org-profile-detail span {
+    color: #667788;
+    font-size: 14px;
+}
+
+.eventcrew-org-profile-detail strong {
+    color: #002b5b;
+    font-size: 14px;
+    text-align: right;
+}
+
+
+/* Messages */
+
+.eventcrew-org-profile-message {
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #002b5b;
+}
+
+.eventcrew-org-profile-page {
+    max-width: 910px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+
+/* Header */
+
+.eventcrew-org-profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    border: 1px solid #dbe5e7;
+    border-radius: 14px;
+    background: white;
+    margin-bottom: 22px;
+}
+
+.eventcrew-org-profile-header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.eventcrew-org-profile-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.eventcrew-org-profile-logo-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    background: #d9f4f1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #16a797;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.eventcrew-org-profile-header h1 {
+    margin: 0 0 8px;
+    color: #002b5b;
+    font-size: 28px;
+}
+
+.eventcrew-org-profile-tagline {
+    margin: 0;
+    color: #667788;
+}
+
+
+/* Profile actions */
+
+.eventcrew-org-profile-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eventcrew-org-profile-edit {
+    padding: 10px 16px;
+
+    border: 1px solid #002b5b;
+    border-radius: 7px;
+
+    background: white;
+
+    color: #002b5b;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.eventcrew-org-profile-edit:hover {
+    background: #002b5b;
+    color: white;
+}
+
+.eventcrew-org-profile-delete {
+    padding: 10px 16px;
+
+    border: 1px solid #c0392b;
+    border-radius: 7px;
+
+    background: white;
+
+    color: #c0392b;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.eventcrew-org-profile-delete:hover {
+    background: #c0392b;
+    color: white;
+}
+
+
+/* Content */
+
+.eventcrew-org-profile-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.eventcrew-org-profile-content .eventcrew-org-profile-card:first-child {
+    grid-column: 1 / -1;
+}
+
+
+/* Cards */
+
+.eventcrew-org-profile-card {
+    background: white;
+
+    border: 1px solid #dbe5e7;
+    border-radius: 14px;
+
+    padding: 22px;
+}
+
+.eventcrew-org-profile-card h2 {
+    margin: 0 0 20px;
+
+    color: #002b5b;
+
+    font-size: 19px;
+}
+
+.eventcrew-org-profile-about {
+    color: #586b7b;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* Details */
+
+.eventcrew-org-profile-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 11px 0;
+
+    border-bottom: 1px solid #e7edef;
+}
+
+.eventcrew-org-profile-detail:last-child {
+    border-bottom: none;
+}
+
+.eventcrew-org-profile-detail span {
+    color: #667788;
+    font-size: 14px;
+}
+
+.eventcrew-org-profile-detail strong {
+    color: #002b5b;
+
+    font-size: 14px;
+
+    text-align: right;
+}
+
+
+/* Message */
+
+.eventcrew-org-profile-message {
+    min-height: 60vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #002b5b;
+}
+
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .eventcrew-org-profile-page {
+        margin: 30px auto;
+    }
+
+    .eventcrew-org-profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .eventcrew-org-profile-actions {
+        width: 100%;
+    }
+
+    .eventcrew-org-profile-edit,
+    .eventcrew-org-profile-delete {
+        flex: 1;
+        text-align: center;
+    }
+
+    .eventcrew-org-profile-content {
+        grid-template-columns: 1fr;
+    }
+
+    .eventcrew-org-profile-content .eventcrew-org-profile-card:first-child {
+        grid-column: auto;
+    }
+
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .eventcrew-org-profile-page {
+        margin: 30px auto;
+    }
+
+    .eventcrew-org-profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .eventcrew-org-profile-content {
+        grid-template-columns: 1fr;
+    }
+
+    .eventcrew-org-profile-content .eventcrew-org-profile-card:first-child {
+        grid-column: auto;
+    }
+
+}

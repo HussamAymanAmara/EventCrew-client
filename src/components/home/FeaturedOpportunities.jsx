@@ -1,3 +1,4 @@
+import API_URL from "../../config";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -11,7 +12,7 @@ function FeaturedOpportunities() {
     useEffect(() => {
         axios
             .get(
-                "http://localhost:5000/api/opportunities?status=open&sort=newest"
+                `${API_URL}/api/opportunities?status=open&sort=newest`
             )
             .then((response) => {
                 setOpportunities(response.data);

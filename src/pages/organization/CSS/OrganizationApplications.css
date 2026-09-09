@@ -1,0 +1,163 @@
+.eventcrew-org-applications-page {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+
+/* Header */
+
+.eventcrew-org-applications-header {
+    margin-bottom: 30px;
+}
+
+.eventcrew-org-applications-header h1 {
+    margin: 0;
+    color: #082b55;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.eventcrew-org-applications-header p {
+    margin: 7px 0 0;
+    color: #667788;
+    font-size: 14px;
+}
+
+
+/* Opportunity selection */
+
+.eventcrew-org-applications-select {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    max-width: 500px;
+    margin-bottom: 25px;
+}
+
+.eventcrew-org-applications-select label {
+    color: #082b55;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.eventcrew-org-applications-select select {
+    width: 100%;
+    padding: 11px 12px;
+    background: white;
+    color: #333333;
+    border: 1px solid #d9e3e3;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.eventcrew-org-applications-select select:focus {
+    outline: none;
+    border-color: #19b8aa;
+}
+
+
+/* Main section */
+
+.eventcrew-org-applications-section {
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.eventcrew-org-applications-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #edf2f2;
+}
+
+.eventcrew-org-applications-section-header h2 {
+    margin: 0;
+    color: #082b55;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.eventcrew-org-applications-section-header span {
+    color: #667788;
+    font-size: 13px;
+}
+
+
+/* Applicant cards */
+
+.eventcrew-org-applications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+/* Empty */
+
+.eventcrew-org-applications-empty {
+    margin: 0;
+    padding: 30px 0;
+    color: #667788;
+    font-size: 14px;
+    text-align: center;
+}
+
+
+/* Error */
+
+.eventcrew-org-applications-error {
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    background: #fde8e8;
+    color: #d9534f;
+    border-radius: 7px;
+    font-size: 13px;
+}
+
+
+/* Login message */
+
+.eventcrew-org-applications-message {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.eventcrew-org-applications-message h2 {
+    margin: 0;
+    color: #082b55;
+    font-size: 22px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 600px) {
+
+    .eventcrew-org-applications-page {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .eventcrew-org-applications-header h1 {
+        font-size: 26px;
+    }
+
+    .eventcrew-org-applications-section {
+        padding: 18px;
+    }
+
+    .eventcrew-org-applications-section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+    }
+
+}

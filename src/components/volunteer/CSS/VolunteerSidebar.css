@@ -1,0 +1,52 @@
+.eventcrew-dashboard-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.eventcrew-dashboard-side-card {
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.eventcrew-dashboard-side-card h3 {
+    margin: 0 0 15px;
+    color: #082b55;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.eventcrew-dashboard-side-card p {
+    margin: 0;
+    color: #667788;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.eventcrew-dashboard-side-card a {
+    display: block;
+    padding: 11px 0;
+    color: #082b55;
+    text-decoration: none;
+    border-bottom: 1px solid #edf2f2;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.eventcrew-dashboard-side-card a:last-child {
+    border-bottom: none;
+}
+
+.eventcrew-dashboard-side-card a:hover {
+    color: #19b8aa;
+}
+
+@media (max-width: 900px) {
+
+    .eventcrew-dashboard-sidebar {
+        width: 100%;
+    }
+
+}

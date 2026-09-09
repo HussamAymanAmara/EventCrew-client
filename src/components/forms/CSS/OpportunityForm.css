@@ -1,0 +1,230 @@
+.eventcrew-opportunity-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+
+.eventcrew-form-section {
+    padding: 25px;
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+}
+
+
+.eventcrew-form-section h2 {
+    margin: 0 0 22px;
+    color: #082b55;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+
+.eventcrew-form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+
+.eventcrew-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+
+.eventcrew-form-group:last-child {
+    margin-bottom: 0;
+}
+
+
+.eventcrew-form-group label {
+    color: #082b55;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.eventcrew-form-group input,
+.eventcrew-form-group select,
+.eventcrew-form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 13px;
+    border: 1px solid #d9e4e6;
+    border-radius: 7px;
+    background: white;
+    color: #082b55;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+
+.eventcrew-form-group textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+
+.eventcrew-form-group input:focus,
+.eventcrew-form-group select:focus,
+.eventcrew-form-group textarea:focus {
+    border-color: #19b8aa;
+}
+
+
+.eventcrew-form-group input:disabled {
+    background: #f3f5f5;
+    color: #9aa6ad;
+    cursor: not-allowed;
+}
+
+
+/* Required skills */
+
+.eventcrew-required-skills {
+    margin: 5px 0 22px;
+}
+
+
+.eventcrew-required-skills-header {
+    margin-bottom: 14px;
+}
+
+
+.eventcrew-required-skills-header label {
+    display: block;
+    margin-bottom: 5px;
+    color: #082b55;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.eventcrew-required-skills-header p {
+    margin: 0;
+    color: #667788;
+    font-size: 13px;
+}
+
+
+.eventcrew-required-skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+
+.eventcrew-required-skill-option {
+    min-height: 42px;
+    padding: 0 14px;
+    border: 1px solid #d9e4e6;
+    border-radius: 8px;
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #526273;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+    user-select: none;
+}
+
+
+.eventcrew-required-skill-option:hover {
+    border-color: #19b8aa;
+    background: #f4fbfa;
+}
+
+
+.eventcrew-required-skill-option input {
+    display: none;
+}
+
+
+.eventcrew-required-skill-check {
+    width: 18px;
+    height: 18px;
+    border: 1px solid #b8c7ca;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.eventcrew-required-skill-option.selected {
+    background: #e9f8f6;
+    border-color: #19b8aa;
+    color: #087f76;
+}
+
+
+.eventcrew-required-skill-option.selected .eventcrew-required-skill-check {
+    background: #19b8aa;
+    border-color: #19b8aa;
+    color: white;
+}
+
+
+/* Submit */
+
+.eventcrew-form-submit {
+    min-height: 48px;
+    padding: 0 24px;
+    align-self: flex-end;
+    border: none;
+    border-radius: 8px;
+    background: #19b8aa;
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+.eventcrew-form-submit:hover {
+    background: #159f94;
+}
+
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .eventcrew-form-row {
+        grid-template-columns: 1fr;
+    }
+
+
+    .eventcrew-form-section {
+        padding: 20px;
+    }
+
+
+    .eventcrew-required-skills-grid {
+        flex-direction: column;
+    }
+
+
+    .eventcrew-required-skill-option {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
+    .eventcrew-form-submit {
+        width: 100%;
+    }
+
+}

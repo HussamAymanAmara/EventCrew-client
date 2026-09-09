@@ -1,0 +1,35 @@
+.eventcrew-org-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.eventcrew-org-side-card {
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.eventcrew-org-side-card h3 {
+    margin: 0 0 15px;
+    color: #082b55;
+    font-size: 17px;
+}
+
+.eventcrew-org-side-card a {
+    display: block;
+    padding: 11px 0;
+    color: #082b55;
+    text-decoration: none;
+    border-bottom: 1px solid #edf2f2;
+    font-size: 13px;
+}
+
+.eventcrew-org-side-card a:last-child {
+    border-bottom: none;
+}
+
+.eventcrew-org-side-card a:hover {
+    color: #19b8aa;
+}

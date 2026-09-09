@@ -1,0 +1,66 @@
+.eventcrew-volunteer-profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.eventcrew-profile-form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.eventcrew-profile-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.eventcrew-profile-form-group label {
+    margin-bottom: 7px;
+    color: #082b55;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.eventcrew-profile-form-group input,
+.eventcrew-profile-form-group textarea {
+    padding: 11px 12px;
+    border: 1px solid #d9e3e3;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+.eventcrew-profile-form-group textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.eventcrew-profile-form-group input:focus,
+.eventcrew-profile-form-group textarea:focus {
+    outline: none;
+    border-color: #19b8aa;
+}
+
+.eventcrew-profile-form-submit {
+    align-self: flex-start;
+    padding: 10px 20px;
+    background: #19b8aa;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.eventcrew-profile-form-submit:hover {
+    background: #159f94;
+}
+
+@media (max-width: 650px) {
+
+    .eventcrew-profile-form-row {
+        grid-template-columns: 1fr;
+    }
+
+}

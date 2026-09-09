@@ -1,0 +1,113 @@
+.eventcrew-applicant-card {
+    background: white;
+    border: 1px solid #e0ecec;
+    border-radius: 14px;
+    padding: 20px;
+}
+
+.eventcrew-applicant-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.eventcrew-applicant-header h3 {
+    margin: 0 0 5px;
+    color: #082b55;
+    font-size: 17px;
+}
+
+.eventcrew-applicant-header p {
+    margin: 0;
+    color: #667788;
+    font-size: 13px;
+}
+
+.eventcrew-applicant-status {
+    padding: 6px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.eventcrew-applicant-status.pending,
+.eventcrew-applicant-status.under_review {
+    background: #fff4d6;
+    color: #b7791f;
+}
+
+.eventcrew-applicant-status.approved,
+.eventcrew-applicant-status.confirmed {
+    background: #ddf7f4;
+    color: #159f94;
+}
+
+.eventcrew-applicant-status.rejected {
+    background: #fde8e8;
+    color: #d9534f;
+}
+
+.eventcrew-applicant-phone {
+    margin: 15px 0 0;
+    color: #667788;
+    font-size: 13px;
+}
+
+.eventcrew-applicant-message {
+    margin-top: 18px;
+    padding: 15px;
+    background: #f7fafa;
+    border-radius: 8px;
+}
+
+.eventcrew-applicant-message strong {
+    color: #082b55;
+    font-size: 13px;
+}
+
+.eventcrew-applicant-message p {
+    margin: 8px 0 0;
+    color: #667788;
+    font-size: 13px;
+}
+
+.eventcrew-applicant-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.eventcrew-applicant-actions button {
+    padding: 9px 16px;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.eventcrew-applicant-approve {
+    background: #19b8aa;
+    color: white;
+    border: 1px solid #19b8aa;
+}
+
+.eventcrew-applicant-reject {
+    background: white;
+    color: #d9534f;
+    border: 1px solid #d9534f;
+}
+
+.eventcrew-applicant-reject:hover {
+    background: #d9534f;
+    color: white;
+}
+
+@media (max-width: 600px) {
+
+    .eventcrew-applicant-header {
+        flex-direction: column;
+    }
+
+}
